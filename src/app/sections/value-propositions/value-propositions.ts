@@ -16,28 +16,28 @@ interface ValueProp {
 export class ValuePropositions {
   values: ValueProp[] = [
     {
-      icon: '🇨🇭',
-      title: 'Swiss Quality, Global Reach',
+      icon: '🎯',
+      title: 'End-to-End Ownership',
       description:
-        'Built and registered in Switzerland, serving clients and therapists across Europe and beyond. Our infrastructure meets the highest standards of reliability and compliance.',
+        "We don't just build features — we own the entire product lifecycle from architecture to deployment and beyond.",
     },
     {
       icon: '🛡️',
-      title: 'Your Data, Your Control',
+      title: 'Security by Default',
       description:
-        "GDPR compliant, Swiss-hosted infrastructure, end-to-end encryption. We never sell your data. Your privacy is not a feature — it's a foundation.",
+        'GDPR-compliant, encrypted by design, privacy-first engineering. Every product we ship meets the highest standards.',
     },
     {
-      icon: '💬',
-      title: 'Support That Cares',
+      icon: '🤝',
+      title: 'Real Partnership, Not Outsourcing',
       description:
-        'Real human support for both therapists and clients. Fast response times, multilingual help, and a team that genuinely understands mental health.',
+        'We work as an extension of your team. Regular communication, shared goals, transparent progress.',
     },
     {
       icon: '💎',
-      title: 'Affordable & Transparent',
+      title: 'Clear Pricing, No Surprises',
       description:
-        "No hidden fees. Clear subscription plans for therapists, transparent pricing for clients. Quality mental health care shouldn't break the bank.",
+        "Transparent project scoping and pricing. You always know what you're paying for and what's coming next.",
     },
   ];
 }

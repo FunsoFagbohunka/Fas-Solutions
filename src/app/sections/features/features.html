@@ -1,18 +1,18 @@
-<section class="features-section" id="features">
+<section class="features-section" id="capabilities">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Why <span class="text-gradient">YounitedTherapy</span>?</h2>
+      <h2 class="section-title">How we <span class="text-gradient">build</span></h2>
       <p class="section-subtitle">
-        Everything you need for accessible, professional mental health support
+        Modern engineering practices, proven tech stacks, reliable delivery
       </p>
     </div>
 
     <div class="features-grid">
-      @for (feature of features; track feature.title; let i = $index) {
+      @for (cap of capabilities; track cap.title; let i = $index) {
         <div class="feature-card" [style.animation-delay]="i * 0.1 + 's'">
-          <div class="feature-card__icon">{{ feature.icon }}</div>
-          <h3 class="feature-card__title">{{ feature.title }}</h3>
-          <p class="feature-card__desc">{{ feature.description }}</p>
+          <div class="feature-card__icon">{{ cap.icon }}</div>
+          <h3 class="feature-card__title">{{ cap.title }}</h3>
+          <p class="feature-card__desc">{{ cap.description }}</p>
         </div>
       }
     </div>

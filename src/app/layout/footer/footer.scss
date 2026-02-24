@@ -38,6 +38,19 @@
   font-size: $text-sm;
   color: $color-text-muted-dark;
   line-height: 1.6;
+  margin-bottom: $space-2;
+}
+
+.footer__product-link {
+  font-family: $font-body;
+  font-size: $text-sm;
+  font-weight: 600;
+  color: $color-primary-light;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-bg-white;
+  }
 }
 
 .footer__social {

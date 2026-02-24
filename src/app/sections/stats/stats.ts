@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID, inject } from '@angular/core';
 
@@ -19,10 +19,10 @@ export class Stats implements AfterViewInit {
   private platformId = inject(PLATFORM_ID);
 
   stats: Stat[] = [
-    { value: 500, suffix: '+', label: 'Registered Therapists', current: 0 },
-    { value: 25000, suffix: '+', label: 'Sessions Completed', current: 0 },
+    { value: 1, suffix: '+', label: 'Products Shipped', current: 0 },
+    { value: 500, suffix: 'K+', label: 'Lines of Code Deployed', current: 0 },
     { value: 15, suffix: '+', label: 'Countries Served', current: 0 },
-    { value: 98, suffix: '%', label: 'User Satisfaction', current: 0 },
+    { value: 98, suffix: '%', label: 'Client Satisfaction', current: 0 },
   ];
 
   private hasAnimated = false;
@@ -62,9 +62,7 @@ export class Stats implements AfterViewInit {
   }
 
   formatNumber(n: number): string {
-    if (n >= 1000) {
-      return n.toLocaleString();
-    }
+    if (n >= 1000) return n.toLocaleString();
     return n.toString();
   }
 }

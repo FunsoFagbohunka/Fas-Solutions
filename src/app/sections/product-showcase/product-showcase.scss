@@ -2,27 +2,15 @@
 @import '../../../styles/mixins';
 @import '../../../styles/typography';
 
-// =============================================
-// PRODUCT SHOWCASE — dual-spotlight section
-// =============================================
 .product-showcase {
   position: relative;
 }
 
-// ---- Shared spotlight block ----
 .spotlight {
   padding: $space-11 0;
-
-  &--primary {
-    background: $color-bg-light;
-  }
-
-  &--secondary {
-    background: $color-bg-white;
-  }
+  background: $color-bg-white;
 }
 
-// ---- Label badge ----
 .label {
   display: inline-block;
   font-family: $font-body;
@@ -35,39 +23,20 @@
   background: rgba($color-primary, 0.08);
   color: $color-primary;
   margin-bottom: $space-4;
-
-  &--alt {
-    background: rgba($color-secondary, 0.08);
-    color: $color-secondary;
-  }
 }
 
-// ---- Grid layout ----
 .spotlight__grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: $space-9;
   align-items: center;
 
-  &--reverse {
-    grid-template-columns: 1.1fr 1fr;
-
-    .spotlight__visual {
-      order: -1;
-    }
-  }
-
   @include respond-below($bp-lg) {
     grid-template-columns: 1fr;
     gap: $space-6;
-
-    &--reverse .spotlight__visual {
-      order: 0;
-    }
   }
 }
 
-// ---- Text content ----
 .spotlight__content {
   @include respond-below($bp-lg) {
     text-align: center;
@@ -104,7 +73,6 @@
   }
 }
 
-// ---- Highlight cards ----
 .highlight-cards {
   display: flex;
   flex-direction: column;
@@ -118,13 +86,9 @@
   gap: $space-3;
   padding: $space-3 $space-4;
   border-radius: $radius-lg;
-  background: $color-bg-white;
+  background: $color-bg-light;
   border: 1px solid $color-border;
   transition: all 0.3s ease;
-
-  .spotlight--primary & {
-    background: $color-bg-white;
-  }
 
   &:hover {
     transform: translateY(-2px);
@@ -154,7 +118,6 @@
   }
 }
 
-// ---- CTA buttons ----
 .spotlight__actions {
   display: flex;
   align-items: center;
@@ -190,11 +153,9 @@
     svg {
       transition: transform 0.3s ease;
     }
-
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba($color-primary, 0.35);
-
       svg {
         transform: translateX(3px);
       }
@@ -214,7 +175,6 @@
   }
 }
 
-// ---- Mockup visual ----
 .spotlight__visual {
   @include respond-below($bp-lg) {
     max-width: 560px;
@@ -223,7 +183,6 @@
 }
 
 .mockup-card {
-  position: relative;
   border-radius: $radius-xl;
   overflow: hidden;
   background: $color-bg-white;
@@ -246,5 +205,27 @@
     height: auto;
     aspect-ratio: 16 / 10;
     object-fit: cover;
+  }
+}
+
+// Pipeline teaser
+.pipeline-teaser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  margin-top: $space-9;
+  padding: $space-4 0;
+  border-top: 1px solid $color-border;
+
+  &__icon {
+    font-size: 1.2rem;
+  }
+
+  &__text {
+    font-family: $font-body;
+    font-size: $text-sm;
+    color: $color-text-secondary;
+    font-style: italic;
   }
 }

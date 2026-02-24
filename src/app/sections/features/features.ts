@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-interface Feature {
+interface Capability {
   icon: string;
   title: string;
   description: string;
@@ -14,36 +14,38 @@ interface Feature {
   styleUrl: './features.scss',
 })
 export class Features {
-  features: Feature[] = [
+  capabilities: Capability[] = [
     {
-      icon: '🎥',
-      title: 'Video Sessions',
-      description: 'Face-to-face therapy via secure, HD video calls with licensed professionals.',
+      icon: '🏗️',
+      title: 'Scalable Architecture',
+      description:
+        'We design systems that grow with your business — microservices, cloud-native, API-first.',
     },
     {
-      icon: '📅',
-      title: 'Smart Scheduling',
-      description: 'Flexible appointment booking that fits your lifestyle and timezone.',
+      icon: '🎨',
+      title: 'Polished User Experience',
+      description:
+        'Every product we build is designed with the end user in mind — intuitive, fast, beautiful.',
     },
     {
       icon: '🔒',
-      title: 'Privacy First',
-      description: 'Swiss-grade data protection, GDPR compliant, end-to-end encryption.',
+      title: 'Security & Compliance',
+      description: 'GDPR-ready, encrypted by default, built with privacy at the core.',
     },
     {
-      icon: '💳',
-      title: 'Simple Pricing',
-      description: 'Transparent pricing with Stripe-powered secure payments.',
+      icon: '⚡',
+      title: 'Rapid Delivery',
+      description: 'Agile process with regular releases — from prototype to production in weeks.',
     },
     {
       icon: '🌐',
-      title: 'Multilingual Support',
-      description: 'Platform available in 5 languages for a global audience.',
+      title: 'Multi-Language & Multi-Region',
+      description: "Internationalization baked in — we've shipped products in 5+ languages.",
     },
     {
       icon: '📊',
-      title: 'Progress Tracking',
-      description: 'Track your therapeutic journey with questionnaires and insights.',
+      title: 'Data-Driven Decisions',
+      description: 'Analytics, dashboards, and reporting built into every platform we deliver.',
     },
   ];
 }
