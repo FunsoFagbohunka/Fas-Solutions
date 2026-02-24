@@ -1,0 +1,250 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/typography';
+
+// =============================================
+// PRODUCT SHOWCASE — dual-spotlight section
+// =============================================
+.product-showcase {
+  position: relative;
+}
+
+// ---- Shared spotlight block ----
+.spotlight {
+  padding: $space-11 0;
+
+  &--primary {
+    background: $color-bg-light;
+  }
+
+  &--secondary {
+    background: $color-bg-white;
+  }
+}
+
+// ---- Label badge ----
+.label {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: $radius-full;
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  margin-bottom: $space-4;
+
+  &--alt {
+    background: rgba($color-secondary, 0.08);
+    color: $color-secondary;
+  }
+}
+
+// ---- Grid layout ----
+.spotlight__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: $space-9;
+  align-items: center;
+
+  &--reverse {
+    grid-template-columns: 1.1fr 1fr;
+
+    .spotlight__visual {
+      order: -1;
+    }
+  }
+
+  @include respond-below($bp-lg) {
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    &--reverse .spotlight__visual {
+      order: 0;
+    }
+  }
+}
+
+// ---- Text content ----
+.spotlight__content {
+  @include respond-below($bp-lg) {
+    text-align: center;
+  }
+}
+
+.spotlight__title {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: $text-3xl;
+  color: $color-text-primary;
+  line-height: 1.2;
+  margin-bottom: $space-4;
+
+  .text-gradient {
+    background: $gradient-brand;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.spotlight__desc {
+  font-family: $font-body;
+  font-size: $text-base;
+  color: $color-text-secondary;
+  line-height: 1.7;
+  margin-bottom: $space-4;
+  max-width: 520px;
+
+  @include respond-below($bp-lg) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// ---- Highlight cards ----
+.highlight-cards {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin: $space-5 0;
+}
+
+.highlight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-radius: $radius-lg;
+  background: $color-bg-white;
+  border: 1px solid $color-border;
+  transition: all 0.3s ease;
+
+  .spotlight--primary & {
+    background: $color-bg-white;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+    border-color: rgba($color-primary, 0.2);
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: $text-sm;
+    color: $color-text-primary;
+    margin-bottom: 2px;
+  }
+
+  &__desc {
+    font-family: $font-body;
+    font-size: $text-xs;
+    color: $color-text-secondary;
+    line-height: 1.5;
+  }
+}
+
+// ---- CTA buttons ----
+.spotlight__actions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-5;
+
+  @include respond-below($bp-lg) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: 12px 24px;
+  border-radius: $radius-full;
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  cursor: pointer;
+
+  &--solid {
+    background: $gradient-primary;
+    color: $color-bg-white;
+    box-shadow: 0 4px 14px rgba($color-primary, 0.25);
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba($color-primary, 0.35);
+
+      svg {
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $color-text-primary;
+    border: 1.5px solid $color-border;
+
+    &:hover {
+      border-color: $color-primary;
+      color: $color-primary;
+      background: rgba($color-primary, 0.04);
+    }
+  }
+}
+
+// ---- Mockup visual ----
+.spotlight__visual {
+  @include respond-below($bp-lg) {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+.mockup-card {
+  position: relative;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  background: $color-bg-white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.12),
+      0 0 0 1px rgba($color-primary, 0.08);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+}
