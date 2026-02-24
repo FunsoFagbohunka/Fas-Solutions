@@ -1,0 +1,74 @@
+// _variables.scss
+
+// --- Primary Brand Colors ---
+$color-primary: #50428c;
+$color-primary-dark: #3d3270;
+$color-primary-light: #8b7bb5;
+$color-primary-subtle: #dcdaf5;
+
+// --- Secondary / Accent ---
+$color-secondary: #752dbe;
+$color-secondary-dark: #5c2396;
+$color-accent-blue: #114f9d;
+$color-accent-blue-light: #1e5aa6;
+
+// --- Neutral Palette ---
+$color-bg-dark: #1a1333;
+$color-bg-dark-elevated: #241c40;
+$color-bg-light: #f9f6f1;
+$color-bg-white: #ffffff;
+$color-text-primary: #1c1c1c;
+$color-text-secondary: #666;
+$color-text-on-dark: #f0edf7;
+$color-text-muted-dark: #a99cc7;
+$color-border: #e6e6e6;
+
+// --- Semantic Colors ---
+$color-success: #008000;
+$color-warning: hsl(40, 90%, 55%);
+$color-error: #f87171;
+
+// --- Gradients ---
+$gradient-brand: linear-gradient(113.69deg, #114f9d -51.66%, #752dbe 104.06%);
+$gradient-hero: linear-gradient(135deg, #1a1333 0%, #2d1f54 50%, #3a2870 100%);
+$gradient-primary: linear-gradient(135deg, #50428c 0%, #752dbe 100%);
+$gradient-cta: linear-gradient(113.69deg, #114f9d -51.66%, #752dbe 104.06%);
+
+// --- Spacing ---
+$space-1: 0.25rem; // 4px
+$space-2: 0.5rem; // 8px
+$space-3: 0.75rem; // 12px
+$space-4: 1rem; // 16px
+$space-5: 1.5rem; // 24px
+$space-6: 2rem; // 32px
+$space-7: 2.5rem; // 40px
+$space-8: 3rem; // 48px
+$space-9: 4rem; // 64px
+$space-10: 5rem; // 80px
+$space-11: 6rem; // 96px
+$space-12: 8rem; // 128px
+
+// --- Layout ---
+$container-max-width: 1280px;
+$container-padding: $space-5;
+
+// --- Border Radius ---
+$radius-sm: 0.375rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+$radius-xl: 1rem;
+$radius-2xl: 1.5rem;
+$radius-full: 9999px;
+
+// --- Shadows ---
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md:
+  0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -2px rgba(0, 0, 0, 0.1);
+$shadow-lg:
+  0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -4px rgba(0, 0, 0, 0.1);
+$shadow-xl:
+  0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 8px 10px -6px rgba(0, 0, 0, 0.1);
+$shadow-glow: 0 0 30px rgba($color-primary, 0.3);
