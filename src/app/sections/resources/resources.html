@@ -1,1 +1,30 @@
-<p>resources works!</p>
+<section class="resources-section" id="resources">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header__top">
+        <h2 class="section-title">Dive In</h2>
+        <a href="#" class="docs-link">Documentation →</a>
+      </div>
+      <p class="section-subtitle">
+        We built YounitedTherapy to be simple and powerful, so you can focus on what matters — your
+        wellbeing.
+      </p>
+    </div>
+
+    <div class="resources-grid">
+      @for (resource of resources; track resource.title) {
+        <div class="resource-card">
+          <span
+            class="resource-badge"
+            [style.background]="resource.badgeColor + '18'"
+            [style.color]="resource.badgeColor"
+          >
+            {{ resource.badge }}
+          </span>
+          <h3 class="resource-card__title">{{ resource.title }}</h3>
+          <a href="#" class="resource-card__link">{{ resource.linkText }}</a>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './cta-banner.html',
   styleUrl: './cta-banner.scss',
 })
-export class CtaBanner {
-
-}
+export class CtaBanner {}

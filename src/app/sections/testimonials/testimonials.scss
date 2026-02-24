@@ -1,0 +1,131 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/typography';
+
+.testimonials-section {
+  padding: $space-11 0;
+  background: $color-bg-light;
+  overflow: hidden;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $space-8;
+}
+
+.section-title {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: $text-3xl;
+  color: $color-text-primary;
+  margin-bottom: $space-3;
+}
+
+.section-subtitle {
+  font-family: $font-body;
+  font-size: $text-lg;
+  color: $color-text-secondary;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.testimonial-track {
+  display: flex;
+  gap: $space-5;
+  animation: scrollX 60s linear infinite;
+  width: max-content;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonial-card {
+  flex-shrink: 0;
+  width: 380px;
+  padding: $space-6;
+  border-radius: $radius-xl;
+  background: $color-bg-white;
+  border: 1px solid $color-border;
+  border-left: 3px solid $color-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-lg;
+  }
+
+  &__quote {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: $text-base;
+    color: $color-text-primary;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $gradient-primary;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    display: block;
+    font-family: $font-body;
+    font-weight: 600;
+    font-size: $text-sm;
+    color: $color-text-primary;
+  }
+
+  &__title {
+    display: block;
+    font-family: $font-body;
+    font-size: $text-xs;
+    color: $color-text-secondary;
+  }
+
+  &__link {
+    font-family: $font-body;
+    font-size: $text-sm;
+    font-weight: 600;
+    color: $color-primary;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}

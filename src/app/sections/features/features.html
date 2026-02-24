@@ -1,1 +1,20 @@
-<p>features works!</p>
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Why <span class="text-gradient">YounitedTherapy</span>?</h2>
+      <p class="section-subtitle">
+        Everything you need for accessible, professional mental health support
+      </p>
+    </div>
+
+    <div class="features-grid">
+      @for (feature of features; track feature.title; let i = $index) {
+        <div class="feature-card" [style.animation-delay]="i * 0.1 + 's'">
+          <div class="feature-card__icon">{{ feature.icon }}</div>
+          <h3 class="feature-card__title">{{ feature.title }}</h3>
+          <p class="feature-card__desc">{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,1 +1,41 @@
-<p>testimonials works!</p>
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Trusted by therapists and clients</h2>
+      <p class="section-subtitle">See how professionals and individuals use YounitedTherapy</p>
+    </div>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div class="testimonial-track">
+      <!-- First set -->
+      @for (t of testimonials; track t.name) {
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">{{ t.quote }}</p>
+          <div class="testimonial-card__footer">
+            <div class="testimonial-card__avatar">{{ t.name.charAt(0) }}</div>
+            <div>
+              <span class="testimonial-card__name">{{ t.name }}</span>
+              <span class="testimonial-card__title">{{ t.title }}</span>
+            </div>
+          </div>
+          <a href="#" class="testimonial-card__link">{{ t.linkText }} →</a>
+        </div>
+      }
+      <!-- Duplicate for seamless loop -->
+      @for (t of testimonials; track t.name + '-dup') {
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">{{ t.quote }}</p>
+          <div class="testimonial-card__footer">
+            <div class="testimonial-card__avatar">{{ t.name.charAt(0) }}</div>
+            <div>
+              <span class="testimonial-card__name">{{ t.name }}</span>
+              <span class="testimonial-card__title">{{ t.title }}</span>
+            </div>
+          </div>
+          <a href="#" class="testimonial-card__link">{{ t.linkText }} →</a>
+        </div>
+      }
+    </div>
+  </div>
+</section>

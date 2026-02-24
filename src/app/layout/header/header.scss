@@ -69,6 +69,29 @@
   }
 }
 
+.d-mobile-block {
+  display: none;
+  @include respond-below($bp-md) {
+    display: block;
+  }
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+
+  .bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: $color-bg-white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+}
+
 .btn {
   padding: $space-2 $space-4;
   border-radius: $radius-full;

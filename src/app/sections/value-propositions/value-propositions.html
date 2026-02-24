@@ -1,1 +1,23 @@
-<p>value-propositions works!</p>
+<section class="values-section" id="value-propositions">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Built for what matters</h2>
+    </div>
+
+    <div class="values-list">
+      @for (val of values; track val.title; let i = $index; let odd = $odd) {
+        <div class="value-block" [class.value-block--reverse]="odd">
+          <div class="value-block__visual">
+            <div class="value-icon-box">
+              <span class="value-icon-box__emoji">{{ val.icon }}</span>
+            </div>
+          </div>
+          <div class="value-block__content">
+            <h3 class="value-block__title">{{ val.title }}</h3>
+            <p class="value-block__desc">{{ val.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

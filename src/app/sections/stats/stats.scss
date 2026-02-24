@@ -1,0 +1,47 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/typography';
+
+.stats-section {
+  padding: $space-9 0;
+  background: $gradient-cta;
+  position: relative;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+  text-align: center;
+
+  @include respond-below($bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-6;
+  }
+
+  @include respond-below($bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-1;
+}
+
+.stat-value {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: $text-4xl;
+  color: $color-bg-white;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: $font-body;
+  font-size: $text-sm;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.5px;
+}
