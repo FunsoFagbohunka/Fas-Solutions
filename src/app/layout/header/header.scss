@@ -1,0 +1,89 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/typography';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: $space-4 0;
+  transition: all 0.3s ease;
+  background: transparent;
+
+  &--scrolled {
+    background: rgba($color-bg-dark, 0.9);
+    backdrop-filter: blur(12px);
+    padding: $space-3 0;
+    box-shadow: $shadow-sm;
+  }
+}
+
+.logo {
+  color: $color-bg-white;
+  font-family: $font-heading;
+  font-size: $text-xl;
+
+  .header--scrolled & {
+    color: $color-primary-light;
+  }
+}
+
+.nav-link {
+  color: rgba($color-bg-white, 0.9);
+  font-family: $font-body;
+  font-weight: 500;
+  font-size: $text-base;
+  position: relative;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $color-bg-white;
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $color-primary;
+    transition: width 0.3s ease;
+  }
+}
+
+.hidden-mobile {
+  @include respond-below($bp-md) {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @include respond-to($bp-md) {
+    display: none !important;
+  }
+}
+
+.btn {
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-family: $font-body;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: $color-primary;
+  color: $color-bg-white;
+
+  &:hover {
+    background: $color-primary-dark;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+}

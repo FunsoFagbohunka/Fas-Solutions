@@ -1,1 +1,27 @@
-<p>header works!</p>
+<header class="header" [ngClass]="{ 'header--scrolled': isScrolled }">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a routerLink="/" class="logo">
+      <span class="fw-bold fs-xl">FAS-Solutions</span>
+    </a>
+
+    <nav class="desktop-nav d-flex align-items-center gap-4 hidden-mobile">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#product-showcase" class="nav-link">Product</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="#resources" class="nav-link">Resources</a>
+    </nav>
+
+    <div class="cta-container hidden-mobile">
+      <a href="https://younitedtherapy.com" target="_blank" class="btn btn-primary">
+        Try YounitedTherapy
+      </a>
+    </div>
+
+    <button class="menu-toggle d-mobile-block hidden-desktop" (click)="toggleMobileMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</header>
