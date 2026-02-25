@@ -1,43 +1,43 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
-@import '../../../styles/typography';
+@use '../../../styles/variables' as variables;
+@use '../../../styles/mixins' as mixins;
+@use '../../../styles/typography' as typography;
 
 .services-section {
-  padding: $space-11 0;
-  background: $color-bg-light;
+  padding: variables.$space-11 0;
+  background: variables.$color-bg-light;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: $space-9;
+  margin-bottom: variables.$space-9;
 }
 
 .label {
   display: inline-block;
-  font-family: $font-body;
+  font-family: typography.$font-body;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 1.8px;
   text-transform: uppercase;
   padding: 6px 14px;
-  border-radius: $radius-full;
-  background: rgba($color-primary, 0.08);
-  color: $color-primary;
-  margin-bottom: $space-4;
+  border-radius: variables.$radius-full;
+  background: rgba(variables.$color-primary, 0.08);
+  color: variables.$color-primary;
+  margin-bottom: variables.$space-4;
 }
 
 .section-title {
-  font-family: $font-heading;
+  font-family: typography.$font-heading;
   font-weight: 800;
-  font-size: $text-3xl;
-  color: $color-text-primary;
-  margin-bottom: $space-3;
+  font-size: typography.$text-3xl;
+  color: variables.$color-text-primary;
+  margin-bottom: variables.$space-3;
 }
 
 .section-subtitle {
-  font-family: $font-body;
-  font-size: $text-lg;
-  color: $color-text-secondary;
+  font-family: typography.$font-body;
+  font-size: typography.$text-lg;
+  color: variables.$color-text-secondary;
   max-width: 560px;
   margin: 0 auto;
   line-height: 1.6;
@@ -46,9 +46,9 @@
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: $space-5;
+  gap: variables.$space-5;
 
-  @include respond-below($bp-lg) {
+  @include mixins.respond-below(mixins.$bp-lg) {
     grid-template-columns: 1fr;
     max-width: 480px;
     margin: 0 auto;
@@ -57,17 +57,17 @@
 
 .service-card {
   position: relative;
-  padding: $space-6;
-  border-radius: $radius-xl;
-  background: $color-bg-white;
-  border: 1px solid $color-border;
+  padding: variables.$space-6;
+  border-radius: variables.$radius-xl;
+  background: variables.$color-bg-white;
+  border: 1px solid variables.$color-border;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: $shadow-lg;
-    border-color: rgba($color-primary, 0.2);
+    box-shadow: variables.$shadow-lg;
+    border-color: rgba(variables.$color-primary, 0.2);
   }
 
   &__accent {
@@ -76,7 +76,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: $gradient-primary;
+    background: variables.$gradient-primary;
     opacity: 0.7;
     transition: opacity 0.3s ease;
   }
@@ -91,24 +91,24 @@
     justify-content: center;
     width: 56px;
     height: 56px;
-    border-radius: $radius-lg;
-    background: rgba($color-primary, 0.06);
-    color: $color-primary;
-    margin-bottom: $space-4;
+    border-radius: variables.$radius-lg;
+    background: rgba(variables.$color-primary, 0.06);
+    color: variables.$color-primary;
+    margin-bottom: variables.$space-4;
   }
 
   &__title {
-    font-family: $font-heading;
+    font-family: typography.$font-heading;
     font-weight: 700;
-    font-size: $text-xl;
-    color: $color-text-primary;
-    margin-bottom: $space-2;
+    font-size: typography.$text-xl;
+    color: variables.$color-text-primary;
+    margin-bottom: variables.$space-2;
   }
 
   &__desc {
-    font-family: $font-body;
-    font-size: $text-sm;
-    color: $color-text-secondary;
+    font-family: typography.$font-body;
+    font-size: typography.$text-sm;
+    color: variables.$color-text-secondary;
     line-height: 1.65;
   }
 }

@@ -1,19 +1,19 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
-@import '../../../styles/typography';
+@use '../../../styles/variables' as variables;
+@use '../../../styles/mixins' as mixins;
+@use '../../../styles/typography' as typography;
 
 .footer {
-  padding: $space-9 0 $space-6;
-  background: $color-bg-dark;
+  padding: variables.$space-9 0 variables.$space-6;
+  background: variables.$color-bg-dark;
 }
 
 .footer__top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: $space-5;
+  gap: variables.$space-5;
 
-  @include respond-below($bp-md) {
+  @include mixins.respond-below(mixins.$bp-md) {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -25,37 +25,37 @@
 }
 
 .footer__logo {
-  font-family: $font-heading;
+  font-family: typography.$font-heading;
   font-weight: 700;
-  font-size: $text-xl;
-  color: $color-text-on-dark;
+  font-size: typography.$text-xl;
+  color: variables.$color-text-on-dark;
   display: block;
-  margin-bottom: $space-2;
+  margin-bottom: variables.$space-2;
 }
 
 .footer__desc {
-  font-family: $font-body;
-  font-size: $text-sm;
-  color: $color-text-muted-dark;
+  font-family: typography.$font-body;
+  font-size: typography.$text-sm;
+  color: variables.$color-text-muted-dark;
   line-height: 1.6;
-  margin-bottom: $space-2;
+  margin-bottom: variables.$space-2;
 }
 
 .footer__product-link {
-  font-family: $font-body;
-  font-size: $text-sm;
+  font-family: typography.$font-body;
+  font-size: typography.$text-sm;
   font-weight: 600;
-  color: $color-primary-light;
+  color: variables.$color-primary-light;
   transition: color 0.2s ease;
 
   &:hover {
-    color: $color-bg-white;
+    color: variables.$color-bg-white;
   }
 }
 
 .footer__social {
   display: flex;
-  gap: $space-3;
+  gap: variables.$space-3;
 }
 
 .social-icon {
@@ -66,19 +66,19 @@
   height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.06);
-  color: $color-text-muted-dark;
+  color: variables.$color-text-muted-dark;
   transition: all 0.3s ease;
 
   &:hover {
     background: rgba(255, 255, 255, 0.12);
-    color: $color-bg-white;
+    color: variables.$color-bg-white;
     transform: translateY(-2px);
   }
 }
 
 .footer__divider {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin: $space-6 0;
+  margin: variables.$space-6 0;
 }
 
 .footer__bottom {
@@ -86,30 +86,30 @@
   align-items: center;
   justify-content: space-between;
 
-  @include respond-below($bp-md) {
+  @include mixins.respond-below(mixins.$bp-md) {
     flex-direction: column;
-    gap: $space-3;
+    gap: variables.$space-3;
   }
 }
 
 .footer__links {
   display: flex;
-  gap: $space-5;
+  gap: variables.$space-5;
 }
 
 .footer__link {
-  font-family: $font-body;
-  font-size: $text-sm;
-  color: $color-text-on-dark;
+  font-family: typography.$font-body;
+  font-size: typography.$text-sm;
+  color: variables.$color-text-on-dark;
   transition: color 0.2s ease;
 
   &:hover {
-    color: $color-primary-light;
+    color: variables.$color-primary-light;
   }
 }
 
 .footer__copyright {
-  font-family: $font-body;
-  font-size: $text-xs;
-  color: $color-text-muted-dark;
+  font-family: typography.$font-body;
+  font-size: typography.$text-xs;
+  color: variables.$color-text-muted-dark;
 }

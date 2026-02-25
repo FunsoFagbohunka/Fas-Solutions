@@ -1,4 +1,7 @@
 // _reset.scss
+@use 'variables' as variables;
+@use 'typography' as typography;
+
 *,
 *::before,
 *::after {
@@ -17,9 +20,9 @@ section[id] {
 }
 
 body {
-  font-family: $font-body;
-  color: $color-text-primary;
-  background-color: $color-bg-white;
+  font-family: typography.$font-body;
+  color: variables.$color-text-primary;
+  background-color: variables.$color-bg-white;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -30,7 +33,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-heading;
+  font-family: typography.$font-heading;
   font-weight: 700;
   line-height: 1.2;
 }

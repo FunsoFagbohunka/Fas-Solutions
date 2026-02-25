@@ -1,11 +1,11 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
-@import '../../../styles/typography';
+@use '../../../styles/variables' as variables;
+@use '../../../styles/mixins' as mixins;
+@use '../../../styles/typography' as typography;
 
 .cta-section {
   position: relative;
-  padding: $space-12 0;
-  background: $gradient-cta;
+  padding: variables.$space-12 0;
+  background: variables.$gradient-cta;
   overflow: hidden;
   text-align: center;
 }
@@ -53,21 +53,21 @@
 }
 
 .cta-title {
-  font-family: $font-heading;
+  font-family: typography.$font-heading;
   font-weight: 800;
-  font-size: $text-3xl;
-  color: $color-bg-white;
-  margin-bottom: $space-3;
+  font-size: typography.$text-3xl;
+  color: variables.$color-bg-white;
+  margin-bottom: variables.$space-3;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .cta-subtitle {
-  font-family: $font-body;
-  font-size: $text-lg;
+  font-family: typography.$font-body;
+  font-size: typography.$text-lg;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: $space-6;
+  margin-bottom: variables.$space-6;
 }
 
 .cta-btn {
@@ -75,12 +75,12 @@
   align-items: center;
   justify-content: center;
   padding: 16px 40px;
-  border-radius: $radius-full;
-  font-family: $font-body;
+  border-radius: variables.$radius-full;
+  font-family: typography.$font-body;
   font-weight: 700;
-  font-size: $text-lg;
-  background: $color-bg-white;
-  color: $color-primary;
+  font-size: typography.$text-lg;
+  background: variables.$color-bg-white;
+  color: variables.$color-primary;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -92,9 +92,9 @@
 }
 
 .cta-note {
-  font-family: $font-body;
-  font-size: $text-xs;
+  font-family: typography.$font-body;
+  font-size: typography.$text-xs;
   color: rgba(255, 255, 255, 0.6);
-  margin-top: $space-4;
+  margin-top: variables.$space-4;
   letter-spacing: 0.3px;
 }

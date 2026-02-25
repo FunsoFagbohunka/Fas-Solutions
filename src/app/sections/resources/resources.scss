@@ -1,76 +1,76 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
-@import '../../../styles/typography';
+@use '../../../styles/variables' as variables;
+@use '../../../styles/mixins' as mixins;
+@use '../../../styles/typography' as typography;
 
 .resources-section {
-  padding: $space-11 0;
-  background: $color-bg-dark;
+  padding: variables.$space-11 0;
+  background: variables.$color-bg-dark;
 }
 
 .section-header {
-  margin-bottom: $space-8;
+  margin-bottom: variables.$space-8;
 
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: $space-3;
+    margin-bottom: variables.$space-3;
 
-    @include respond-below($bp-sm) {
+    @include mixins.respond-below(mixins.$bp-sm) {
       flex-direction: column;
-      gap: $space-2;
+      gap: variables.$space-2;
     }
   }
 }
 
 .section-title {
-  font-family: $font-heading;
+  font-family: typography.$font-heading;
   font-weight: 800;
-  font-size: $text-3xl;
-  color: $color-text-on-dark;
+  font-size: typography.$text-3xl;
+  color: variables.$color-text-on-dark;
 }
 
 .docs-link {
-  font-family: $font-body;
-  font-size: $text-sm;
+  font-family: typography.$font-body;
+  font-size: typography.$text-sm;
   font-weight: 600;
-  color: $color-primary-light;
+  color: variables.$color-primary-light;
   transition: color 0.2s ease;
 
   &:hover {
-    color: $color-bg-white;
+    color: variables.$color-bg-white;
   }
 }
 
 .section-subtitle {
-  font-family: $font-body;
-  font-size: $text-base;
-  color: $color-text-muted-dark;
+  font-family: typography.$font-body;
+  font-size: typography.$text-base;
+  color: variables.$color-text-muted-dark;
   max-width: 600px;
 }
 
 .resources-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: $space-5;
+  gap: variables.$space-5;
 
-  @include respond-below($bp-lg) {
+  @include mixins.respond-below(mixins.$bp-lg) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-below($bp-sm) {
+  @include mixins.respond-below(mixins.$bp-sm) {
     grid-template-columns: 1fr;
   }
 }
 
 .resource-card {
-  padding: $space-6;
-  border-radius: $radius-xl;
-  background: $color-bg-dark-elevated;
+  padding: variables.$space-6;
+  border-radius: variables.$radius-xl;
+  background: variables.$color-bg-dark-elevated;
   border: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
   flex-direction: column;
-  gap: $space-3;
+  gap: variables.$space-3;
   transition: all 0.3s ease;
 
   &:hover {
@@ -80,23 +80,23 @@
   }
 
   &__title {
-    font-family: $font-heading;
+    font-family: typography.$font-heading;
     font-weight: 600;
-    font-size: $text-lg;
-    color: $color-text-on-dark;
+    font-size: typography.$text-lg;
+    color: variables.$color-text-on-dark;
     line-height: 1.4;
     flex-grow: 1;
   }
 
   &__link {
-    font-family: $font-body;
-    font-size: $text-sm;
+    font-family: typography.$font-body;
+    font-size: typography.$text-sm;
     font-weight: 600;
-    color: $color-primary-light;
+    color: variables.$color-primary-light;
     transition: color 0.2s ease;
 
     &:hover {
-      color: $color-bg-white;
+      color: variables.$color-bg-white;
     }
   }
 }
@@ -105,8 +105,8 @@
   display: inline-block;
   width: fit-content;
   padding: 4px 12px;
-  border-radius: $radius-full;
-  font-family: $font-body;
+  border-radius: variables.$radius-full;
+  font-family: typography.$font-body;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.5px;

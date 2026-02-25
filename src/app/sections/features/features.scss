@@ -1,28 +1,28 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
-@import '../../../styles/typography';
+@use '../../../styles/variables' as variables;
+@use '../../../styles/mixins' as mixins;
+@use '../../../styles/typography' as typography;
 
 .features-section {
-  padding: $space-11 0;
-  background: $color-bg-dark;
+  padding: variables.$space-11 0;
+  background: variables.$color-bg-dark;
   position: relative;
   overflow: hidden;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: $space-9;
+  margin-bottom: variables.$space-9;
 }
 
 .section-title {
-  font-family: $font-heading;
+  font-family: typography.$font-heading;
   font-weight: 800;
-  font-size: $text-3xl;
-  color: $color-text-on-dark;
-  margin-bottom: $space-3;
+  font-size: typography.$text-3xl;
+  color: variables.$color-text-on-dark;
+  margin-bottom: variables.$space-3;
 
   .text-gradient {
-    background: $gradient-brand;
+    background: variables.$gradient-brand;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -30,9 +30,9 @@
 }
 
 .section-subtitle {
-  font-family: $font-body;
-  font-size: $text-lg;
-  color: $color-text-muted-dark;
+  font-family: typography.$font-body;
+  font-size: typography.$text-lg;
+  color: variables.$color-text-muted-dark;
   max-width: 500px;
   margin: 0 auto;
 }
@@ -40,20 +40,20 @@
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: $space-5;
+  gap: variables.$space-5;
 
-  @include respond-below($bp-lg) {
+  @include mixins.respond-below(mixins.$bp-lg) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-below($bp-sm) {
+  @include mixins.respond-below(mixins.$bp-sm) {
     grid-template-columns: 1fr;
   }
 }
 
 .feature-card {
-  padding: $space-6;
-  border-radius: $radius-xl;
+  padding: variables.$space-6;
+  border-radius: variables.$radius-xl;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
@@ -62,7 +62,7 @@
   &:hover {
     background: rgba(255, 255, 255, 0.08);
     transform: translateY(-4px);
-    border-color: rgba($color-primary-light, 0.3);
+    border-color: rgba(variables.$color-primary-light, 0.3);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   }
 
@@ -72,24 +72,24 @@
     justify-content: center;
     width: 56px;
     height: 56px;
-    border-radius: $radius-lg;
-    background: rgba($color-primary-light, 0.1);
-    color: $color-primary-light;
-    margin-bottom: $space-3;
+    border-radius: variables.$radius-lg;
+    background: rgba(variables.$color-primary-light, 0.1);
+    color: variables.$color-primary-light;
+    margin-bottom: variables.$space-3;
   }
 
   &__title {
-    font-family: $font-heading;
+    font-family: typography.$font-heading;
     font-weight: 600;
-    font-size: $text-lg;
-    color: $color-text-on-dark;
-    margin-bottom: $space-2;
+    font-size: typography.$text-lg;
+    color: variables.$color-text-on-dark;
+    margin-bottom: variables.$space-2;
   }
 
   &__desc {
-    font-family: $font-body;
-    font-size: $text-sm;
-    color: $color-text-muted-dark;
+    font-family: typography.$font-body;
+    font-size: typography.$text-sm;
+    color: variables.$color-text-muted-dark;
     line-height: 1.6;
   }
 }

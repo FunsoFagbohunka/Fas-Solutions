@@ -1,34 +1,34 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
-@import '../../../styles/typography';
+@use '../../../styles/variables' as variables;
+@use '../../../styles/mixins' as mixins;
+@use '../../../styles/typography' as typography;
 
 .values-section {
-  padding: $space-11 0;
-  background: $color-bg-white;
+  padding: variables.$space-11 0;
+  background: variables.$color-bg-white;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: $space-9;
+  margin-bottom: variables.$space-9;
 }
 
 .section-title {
-  font-family: $font-heading;
+  font-family: typography.$font-heading;
   font-weight: 800;
-  font-size: $text-3xl;
-  color: $color-text-primary;
+  font-size: typography.$text-3xl;
+  color: variables.$color-text-primary;
 }
 
 .values-list {
   display: flex;
   flex-direction: column;
-  gap: $space-9;
+  gap: variables.$space-9;
 }
 
 .value-block {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: $space-8;
+  gap: variables.$space-8;
   align-items: center;
 
   &--reverse {
@@ -39,7 +39,7 @@
     }
   }
 
-  @include respond-below($bp-md) {
+  @include mixins.respond-below(mixins.$bp-md) {
     grid-template-columns: 1fr;
     text-align: center;
 
@@ -58,13 +58,13 @@
 .value-icon-box {
   width: 120px;
   height: 120px;
-  border-radius: $radius-2xl;
-  background: $color-bg-light;
-  border: 1px solid $color-border;
+  border-radius: variables.$radius-2xl;
+  background: variables.$color-bg-light;
+  border: 1px solid variables.$color-border;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-primary;
+  color: variables.$color-primary;
   transition: all 0.4s ease;
   position: relative;
 
@@ -72,8 +72,8 @@
     content: '';
     position: absolute;
     inset: -2px;
-    border-radius: $radius-2xl;
-    background: $gradient-brand;
+    border-radius: variables.$radius-2xl;
+    background: variables.$gradient-brand;
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -81,7 +81,7 @@
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: $shadow-lg;
+    box-shadow: variables.$shadow-lg;
     border-color: transparent;
 
     &::after {
@@ -91,21 +91,21 @@
 }
 
 .value-block__title {
-  font-family: $font-heading;
+  font-family: typography.$font-heading;
   font-weight: 700;
-  font-size: $text-2xl;
-  color: $color-text-primary;
-  margin-bottom: $space-3;
+  font-size: typography.$text-2xl;
+  color: variables.$color-text-primary;
+  margin-bottom: variables.$space-3;
 }
 
 .value-block__desc {
-  font-family: $font-body;
-  font-size: $text-base;
-  color: $color-text-secondary;
+  font-family: typography.$font-body;
+  font-size: typography.$text-base;
+  color: variables.$color-text-secondary;
   line-height: 1.7;
   max-width: 500px;
 
-  @include respond-below($bp-md) {
+  @include mixins.respond-below(mixins.$bp-md) {
     margin: 0 auto;
   }
 }

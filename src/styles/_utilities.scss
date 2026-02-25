@@ -1,11 +1,13 @@
 // _utilities.scss
+@use 'variables' as variables;
+
 .container {
   width: 100%;
-  max-width: $container-max-width;
+  max-width: variables.$container-max-width;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $container-padding;
-  padding-right: $container-padding;
+  padding-left: variables.$container-padding;
+  padding-right: variables.$container-padding;
 }
 
 .text-center {
@@ -54,17 +56,17 @@
   flex-wrap: wrap;
 }
 .gap-1 {
-  gap: $space-1;
+  gap: variables.$space-1;
 }
 .gap-2 {
-  gap: $space-2;
+  gap: variables.$space-2;
 }
 .gap-3 {
-  gap: $space-3;
+  gap: variables.$space-3;
 }
 .gap-4 {
-  gap: $space-4;
+  gap: variables.$space-4;
 }
 .gap-5 {
-  gap: $space-5;
+  gap: variables.$space-5;
 }

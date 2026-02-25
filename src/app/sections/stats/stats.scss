@@ -1,25 +1,25 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
-@import '../../../styles/typography';
+@use '../../../styles/variables' as variables;
+@use '../../../styles/mixins' as mixins;
+@use '../../../styles/typography' as typography;
 
 .stats-section {
-  padding: $space-9 0;
-  background: $gradient-cta;
+  padding: variables.$space-9 0;
+  background: variables.$gradient-cta;
   position: relative;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: $space-5;
+  gap: variables.$space-5;
   text-align: center;
 
-  @include respond-below($bp-md) {
+  @include mixins.respond-below(mixins.$bp-md) {
     grid-template-columns: repeat(2, 1fr);
-    gap: $space-6;
+    gap: variables.$space-6;
   }
 
-  @include respond-below($bp-sm) {
+  @include mixins.respond-below(mixins.$bp-sm) {
     grid-template-columns: 1fr;
   }
 }
@@ -28,20 +28,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $space-1;
+  gap: variables.$space-1;
 }
 
 .stat-value {
-  font-family: $font-heading;
+  font-family: typography.$font-heading;
   font-weight: 800;
-  font-size: $text-4xl;
-  color: $color-bg-white;
+  font-size: typography.$text-4xl;
+  color: variables.$color-bg-white;
   line-height: 1;
 }
 
 .stat-label {
-  font-family: $font-body;
-  font-size: $text-sm;
+  font-family: typography.$font-body;
+  font-size: typography.$text-sm;
   color: rgba(255, 255, 255, 0.75);
   letter-spacing: 0.5px;
 }

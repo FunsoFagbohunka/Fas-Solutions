@@ -1,6 +1,6 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
-@import '../../../styles/typography';
+@use '../../../styles/variables' as variables;
+@use '../../../styles/mixins' as mixins;
+@use '../../../styles/typography' as typography;
 
 .header {
   position: fixed;
@@ -8,38 +8,38 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: $space-4 0;
+  padding: variables.$space-4 0;
   transition: all 0.3s ease;
   background: transparent;
 
   &--scrolled {
-    background: rgba($color-bg-dark, 0.9);
+    background: rgba(variables.$color-bg-dark, 0.9);
     backdrop-filter: blur(12px);
-    padding: $space-3 0;
-    box-shadow: $shadow-sm;
+    padding: variables.$space-3 0;
+    box-shadow: variables.$shadow-sm;
   }
 }
 
 .logo {
-  color: $color-bg-white;
-  font-family: $font-heading;
-  font-size: $text-xl;
+  color: variables.$color-bg-white;
+  font-family: typography.$font-heading;
+  font-size: typography.$text-xl;
 
   .header--scrolled & {
-    color: $color-primary-light;
+    color: variables.$color-primary-light;
   }
 }
 
 .nav-link {
-  color: rgba($color-bg-white, 0.9);
-  font-family: $font-body;
+  color: rgba(variables.$color-bg-white, 0.9);
+  font-family: typography.$font-body;
   font-weight: 500;
-  font-size: $text-sm;
+  font-size: typography.$text-sm;
   position: relative;
   transition: color 0.3s ease;
 
   &:hover {
-    color: $color-bg-white;
+    color: variables.$color-bg-white;
     &::after {
       width: 100%;
     }
@@ -52,19 +52,19 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: $color-primary-light;
+    background: variables.$color-primary-light;
     transition: width 0.3s ease;
   }
 }
 
 .hidden-mobile {
-  @include respond-below($bp-md) {
+  @include mixins.respond-below(mixins.$bp-md) {
     display: none !important;
   }
 }
 
 .hidden-desktop {
-  @include respond-to($bp-md) {
+  @include mixins.respond-to(mixins.$bp-md) {
     display: none !important;
   }
 }
@@ -82,7 +82,7 @@
     display: block;
     width: 24px;
     height: 2px;
-    background: $color-bg-white;
+    background: variables.$color-bg-white;
     border-radius: 2px;
     transition: all 0.3s ease;
   }
@@ -136,73 +136,73 @@
   right: 0;
   width: 280px;
   height: 100%;
-  background: $color-bg-dark;
-  padding: $space-12 $space-6 $space-6;
+  background: variables.$color-bg-dark;
+  padding: variables.$space-12 variables.$space-6 variables.$space-6;
   display: flex;
   flex-direction: column;
-  gap: $space-1;
+  gap: variables.$space-1;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: -8px 0 30px rgba(0, 0, 0, 0.3);
 }
 
 .mobile-drawer__link {
-  font-family: $font-body;
+  font-family: typography.$font-body;
   font-weight: 500;
-  font-size: $text-lg;
-  color: rgba($color-bg-white, 0.85);
-  padding: $space-3 0;
+  font-size: typography.$text-lg;
+  color: rgba(variables.$color-bg-white, 0.85);
+  padding: variables.$space-3 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   transition: color 0.2s ease;
 
   &:hover {
-    color: $color-primary-light;
+    color: variables.$color-primary-light;
   }
 }
 
 .mobile-drawer__divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.1);
-  margin: $space-3 0;
+  margin: variables.$space-3 0;
 }
 
 .mobile-drawer__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $space-3 $space-5;
-  border-radius: $radius-full;
-  background: $gradient-primary;
-  color: $color-bg-white;
-  font-family: $font-body;
+  padding: variables.$space-3 variables.$space-5;
+  border-radius: variables.$radius-full;
+  background: variables.$gradient-primary;
+  color: variables.$color-bg-white;
+  font-family: typography.$font-body;
   font-weight: 600;
-  font-size: $text-base;
+  font-size: typography.$text-base;
   text-align: center;
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba($color-primary, 0.3);
+    box-shadow: 0 8px 20px rgba(variables.$color-primary, 0.3);
   }
 }
 
 // ---- CTA button ----
 .btn {
-  padding: $space-2 $space-4;
-  border-radius: $radius-full;
-  font-family: $font-body;
+  padding: variables.$space-2 variables.$space-4;
+  border-radius: variables.$radius-full;
+  font-family: typography.$font-body;
   font-weight: 600;
-  font-size: $text-sm;
+  font-size: typography.$text-sm;
   transition: all 0.3s ease;
 }
 
 .btn-primary {
-  background: $color-primary;
-  color: $color-bg-white;
+  background: variables.$color-primary;
+  color: variables.$color-bg-white;
 
   &:hover {
-    background: $color-primary-dark;
-    box-shadow: $shadow-md;
+    background: variables.$color-primary-dark;
+    box-shadow: variables.$shadow-md;
     transform: translateY(-2px);
   }
 }
