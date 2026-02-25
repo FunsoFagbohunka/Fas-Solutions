@@ -19,5 +19,11 @@ export class Header {
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    document.body.style.overflow = this.isMobileMenuOpen ? 'hidden' : '';
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+    document.body.style.overflow = '';
   }
 }

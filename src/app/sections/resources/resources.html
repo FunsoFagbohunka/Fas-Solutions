@@ -1,6 +1,6 @@
 <section class="resources-section" id="insights">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-up">
       <div class="section-header__top">
         <h2 class="section-title">Dive In</h2>
         <a href="#" class="docs-link">Documentation →</a>
@@ -12,8 +12,8 @@
     </div>
 
     <div class="resources-grid">
-      @for (resource of resources; track resource.title) {
-        <div class="resource-card">
+      @for (resource of resources; track resource.title; let i = $index) {
+        <div class="resource-card" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 80">
           <span
             class="resource-badge"
             [style.background]="resource.badgeColor + '18'"

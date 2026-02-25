@@ -34,7 +34,7 @@
   color: rgba($color-bg-white, 0.9);
   font-family: $font-body;
   font-weight: 500;
-  font-size: $text-base;
+  font-size: $text-sm;
   position: relative;
   transition: color 0.3s ease;
 
@@ -52,7 +52,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: $color-primary;
+    background: $color-primary-light;
     transition: width 0.3s ease;
   }
 }
@@ -69,18 +69,14 @@
   }
 }
 
-.d-mobile-block {
-  display: none;
-  @include respond-below($bp-md) {
-    display: block;
-  }
-}
-
+// ---- Hamburger toggle ----
 .menu-toggle {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 4px;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 1010;
 
   .bar {
     display: block;
@@ -90,13 +86,113 @@
     border-radius: 2px;
     transition: all 0.3s ease;
   }
+
+  &.open {
+    .bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
 }
 
+// ---- Mobile Drawer ----
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  visibility: hidden;
+
+  &--open {
+    pointer-events: auto;
+    visibility: visible;
+
+    .mobile-drawer__overlay {
+      opacity: 1;
+    }
+
+    .mobile-drawer__panel {
+      transform: translateX(0);
+    }
+  }
+}
+
+.mobile-drawer__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background: $color-bg-dark;
+  padding: $space-12 $space-6 $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-drawer__link {
+  font-family: $font-body;
+  font-weight: 500;
+  font-size: $text-lg;
+  color: rgba($color-bg-white, 0.85);
+  padding: $space-3 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-primary-light;
+  }
+}
+
+.mobile-drawer__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: $space-3 0;
+}
+
+.mobile-drawer__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-3 $space-5;
+  border-radius: $radius-full;
+  background: $gradient-primary;
+  color: $color-bg-white;
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: $text-base;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba($color-primary, 0.3);
+  }
+}
+
+// ---- CTA button ----
 .btn {
   padding: $space-2 $space-4;
   border-radius: $radius-full;
   font-family: $font-body;
   font-weight: 600;
+  font-size: $text-sm;
   transition: all 0.3s ease;
 }
 

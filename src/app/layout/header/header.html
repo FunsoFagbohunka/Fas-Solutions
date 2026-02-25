@@ -16,10 +16,29 @@
       <a href="#cta-banner" class="btn btn-primary"> Let's Talk </a>
     </div>
 
-    <button class="menu-toggle d-mobile-block hidden-desktop" (click)="toggleMobileMenu()">
+    <button
+      class="menu-toggle hidden-desktop"
+      [class.open]="isMobileMenuOpen"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation menu"
+    >
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
   </div>
 </header>
+
+<!-- Mobile Drawer -->
+<div class="mobile-drawer" [class.mobile-drawer--open]="isMobileMenuOpen">
+  <div class="mobile-drawer__overlay" (click)="closeMobileMenu()"></div>
+  <nav class="mobile-drawer__panel">
+    <a href="#services" class="mobile-drawer__link" (click)="closeMobileMenu()">Services</a>
+    <a href="#product-showcase" class="mobile-drawer__link" (click)="closeMobileMenu()">Products</a>
+    <a href="#capabilities" class="mobile-drawer__link" (click)="closeMobileMenu()">Capabilities</a>
+    <a href="#testimonials" class="mobile-drawer__link" (click)="closeMobileMenu()">Testimonials</a>
+    <a href="#insights" class="mobile-drawer__link" (click)="closeMobileMenu()">Insights</a>
+    <div class="mobile-drawer__divider"></div>
+    <a href="#cta-banner" class="mobile-drawer__cta" (click)="closeMobileMenu()">Let's Talk</a>
+  </nav>
+</div>

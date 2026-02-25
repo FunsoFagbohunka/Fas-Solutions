@@ -1,16 +1,18 @@
 <section class="values-section" id="value-propositions">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-up">
       <h2 class="section-title">Why teams choose FAS-Solutions</h2>
     </div>
 
     <div class="values-list">
       @for (val of values; track val.title; let i = $index; let odd = $odd) {
-        <div class="value-block" [class.value-block--reverse]="odd">
+        <div
+          class="value-block"
+          [class.value-block--reverse]="odd"
+          [attr.data-aos]="odd ? 'fade-left' : 'fade-right'"
+        >
           <div class="value-block__visual">
-            <div class="value-icon-box">
-              <span class="value-icon-box__emoji">{{ val.icon }}</span>
-            </div>
+            <div class="value-icon-box" [innerHTML]="val.svg"></div>
           </div>
           <div class="value-block__content">
             <h3 class="value-block__title">{{ val.title }}</h3>

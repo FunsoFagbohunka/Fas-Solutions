@@ -56,23 +56,37 @@
 }
 
 .value-icon-box {
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
   border-radius: $radius-2xl;
   background: $color-bg-light;
   border: 1px solid $color-border;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  color: $color-primary;
+  transition: all 0.4s ease;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: $radius-2xl;
+    background: $gradient-brand;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
     transform: scale(1.05);
     box-shadow: $shadow-lg;
-  }
+    border-color: transparent;
 
-  &__emoji {
-    font-size: 4rem;
+    &::after {
+      opacity: 1;
+    }
   }
 }
 

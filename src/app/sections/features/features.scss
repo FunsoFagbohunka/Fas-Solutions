@@ -67,15 +67,15 @@
   }
 
   &__icon {
-    font-size: 2rem;
-    margin-bottom: $space-3;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 56px;
     height: 56px;
     border-radius: $radius-lg;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba($color-primary-light, 0.1);
+    color: $color-primary-light;
+    margin-bottom: $space-3;
   }
 
   &__title {

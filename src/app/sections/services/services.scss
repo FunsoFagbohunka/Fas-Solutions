@@ -92,8 +92,8 @@
     width: 56px;
     height: 56px;
     border-radius: $radius-lg;
-    background: $color-bg-light;
-    font-size: 1.6rem;
+    background: rgba($color-primary, 0.06);
+    color: $color-primary;
     margin-bottom: $space-4;
   }
 

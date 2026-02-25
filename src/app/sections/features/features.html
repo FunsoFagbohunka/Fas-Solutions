@@ -1,6 +1,6 @@
 <section class="features-section" id="capabilities">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-up">
       <h2 class="section-title">How we <span class="text-gradient">build</span></h2>
       <p class="section-subtitle">
         Modern engineering practices, proven tech stacks, reliable delivery
@@ -9,8 +9,8 @@
 
     <div class="features-grid">
       @for (cap of capabilities; track cap.title; let i = $index) {
-        <div class="feature-card" [style.animation-delay]="i * 0.1 + 's'">
-          <div class="feature-card__icon">{{ cap.icon }}</div>
+        <div class="feature-card" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 80">
+          <div class="feature-card__icon" [innerHTML]="cap.svg"></div>
           <h3 class="feature-card__title">{{ cap.title }}</h3>
           <p class="feature-card__desc">{{ cap.description }}</p>
         </div>
