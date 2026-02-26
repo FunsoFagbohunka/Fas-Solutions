@@ -4,7 +4,7 @@
 
 .stats-section {
   padding: variables.$space-9 0;
-  background: variables.$gradient-cta;
+  background: variables.$color-bg-dark-elevated;
   position: relative;
 }
 
@@ -35,13 +35,13 @@
   font-family: typography.$font-heading;
   font-weight: 800;
   font-size: typography.$text-4xl;
-  color: variables.$color-bg-white;
+  color: variables.$color-primary-light;
   line-height: 1;
 }
 
 .stat-label {
   font-family: typography.$font-body;
   font-size: typography.$text-sm;
-  color: rgba(255, 255, 255, 0.75);
+  color: variables.$color-text-muted-dark;
   letter-spacing: 0.5px;
 }

@@ -6,10 +6,10 @@
           <span class="label">FLAGSHIP PRODUCT</span>
           <h2 class="spotlight__title">Meet <span class="text-gradient">YounitedTherapy</span></h2>
           <p class="spotlight__desc">
-            YounitedTherapy is a comprehensive online therapy platform that connects individuals
-            with licensed mental health professionals. Whether you're seeking support for anxiety,
-            depression, or personal growth, our platform makes professional care accessible from
-            anywhere.
+            YounitedTherapy is a secure, user-friendly online therapy platform designed to connect
+            individuals with mental health professionals. Access support from anywhere with a
+            private experience, flexible scheduling, and a smooth end-to-end journey from booking to
+            sessions
           </p>
           <p class="spotlight__desc">
             Built with security, simplicity, and empathy at its core — YounitedTherapy demonstrates
@@ -18,13 +18,13 @@
 
           <div class="highlight-cards">
             @for (card of highlights; track card.title) {
-              <div class="highlight-card">
-                <span class="highlight-card__icon">{{ card.icon }}</span>
-                <div>
-                  <h4 class="highlight-card__title">{{ card.title }}</h4>
-                  <p class="highlight-card__desc">{{ card.description }}</p>
-                </div>
+            <div class="highlight-card">
+              <span class="highlight-card__icon">{{ card.icon }}</span>
+              <div>
+                <h4 class="highlight-card__title">{{ card.title }}</h4>
+                <p class="highlight-card__desc">{{ card.description }}</p>
               </div>
+            </div>
             }
           </div>
 
@@ -46,7 +46,7 @@
                 />
               </svg>
             </a>
-            <a href="#cta-banner" class="btn btn--ghost"> See More Work </a>
+            <!-- <a routerLink="/work" class="btn btn--ghost"> See More Work </a> -->
           </div>
         </div>
 

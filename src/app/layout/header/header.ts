@@ -54,4 +54,11 @@ export class Header implements OnInit, OnDestroy {
     this.isMobileMenuOpen = false;
     document.body.style.overflow = '';
   }
+
+  onLogoClick(event: Event) {
+    if (this.isHomePage) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
 }

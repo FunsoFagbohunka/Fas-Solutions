@@ -25,6 +25,7 @@ export class ProductShowcase {
       title: 'Easy Scheduling',
       description: 'Book appointments with licensed therapists in just a few clicks.',
     },
+    // change to search
     {
       icon: '🌍',
       title: 'Multilingual',

@@ -1,6 +1,6 @@
 <header class="header" [ngClass]="{ 'header--scrolled': shouldShowSolid }">
   <div class="container d-flex align-items-center justify-content-between">
-    <a routerLink="/" class="logo">
+    <a routerLink="/" class="logo" (click)="onLogoClick($event)">
       <span class="fw-bold fs-xl">FAS-Solutions</span>
     </a>
 
@@ -8,12 +8,12 @@
       <a href="#services" class="nav-link">Services</a>
       <a href="#product-showcase" class="nav-link">Products</a>
       <a href="#capabilities" class="nav-link">Capabilities</a>
-      <a href="#testimonials" class="nav-link">Testimonials</a>
-      <a href="#insights" class="nav-link">Insights</a>
+      <!-- <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="#insights" class="nav-link">Insights</a> -->
     </nav>
 
     <div class="cta-container hidden-mobile">
-      <a href="#cta-banner" class="btn btn-primary"> Let's Talk </a>
+      <a routerLink="/contact" class="btn btn-primary"> Let's Talk </a>
     </div>
 
     <button
@@ -39,6 +39,6 @@
     <a href="#testimonials" class="mobile-drawer__link" (click)="closeMobileMenu()">Testimonials</a>
     <a href="#insights" class="mobile-drawer__link" (click)="closeMobileMenu()">Insights</a>
     <div class="mobile-drawer__divider"></div>
-    <a href="#cta-banner" class="mobile-drawer__cta" (click)="closeMobileMenu()">Let's Talk</a>
+    <a routerLink="/contact" class="mobile-drawer__cta" (click)="closeMobileMenu()">Let's Talk</a>
   </nav>
 </div>

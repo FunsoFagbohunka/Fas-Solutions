@@ -36,7 +36,21 @@ export class Contact {
   ];
 
   onSubmit(): void {
-    // TODO: Implement form submission
-    console.log('Form submitted:', this.form);
+    const subject = encodeURIComponent(`[FAS-Solutions] ${this.form.subject || 'Contact Form'}`);
+
+    const bodyParts = [
+      `Name: ${this.form.name}`,
+      `Email: ${this.form.email}`,
+      this.form.company ? `Company: ${this.form.company}` : '',
+      `Subject: ${this.form.subject}`,
+      '',
+      'Message:',
+      this.form.message,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    const body = encodeURIComponent(bodyParts);
+    window.location.href = `mailto:contact@fas-solutions.com?subject=${subject}&body=${body}`;
   }
 }

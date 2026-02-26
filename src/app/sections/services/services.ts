@@ -32,7 +32,7 @@ export class Services {
       icon: 'settings',
       title: 'Custom Software Solutions',
       description:
-        'Need a bespoke tool, internal platform, or integration? From payment systems to third-party APIs — we build tailored software that fits your workflow.',
+        'We help companies build bespoke tools, internal platforms, and integrations that streamline operations. Whether it’s payments, automation, or third-party APIs, we deliver tailored B2B software that matches your processes. No software solution is too small—or too complex.',
     },
     {
       icon: 'globe',
