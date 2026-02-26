@@ -26,7 +26,7 @@ export class Services {
       icon: 'brain',
       title: 'AI Integration',
       description:
-        'We embed intelligent AI into your products — from predictive analytics and NLP to custom LLM pipelines and smart automation.',
+        'We embed intelligent AI into your products — from agentic workflows and RAG pipelines to LLM orchestration, predictive analytics, and smart automation.',
     },
     {
       icon: 'settings',

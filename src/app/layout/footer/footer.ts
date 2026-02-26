@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { COMPANY } from '../../core/company.config';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.scss',
 })
 export class Footer {
+  readonly company = COMPANY;
   currentYear = new Date().getFullYear();
 }

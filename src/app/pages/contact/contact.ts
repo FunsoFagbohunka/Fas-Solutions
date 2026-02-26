@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { COMPANY } from '../../core/company.config';
 
 interface ContactForm {
   name: string;
@@ -17,6 +18,8 @@ interface ContactForm {
   styleUrl: './contact.scss',
 })
 export class Contact {
+  readonly companyEmail = COMPANY.email;
+
   form: ContactForm = {
     name: '',
     email: '',
@@ -36,7 +39,7 @@ export class Contact {
   ];
 
   onSubmit(): void {
-    const subject = encodeURIComponent(`[FAS-Solutions] ${this.form.subject || 'Contact Form'}`);
+    const subject = encodeURIComponent(`[${COMPANY.name}] ${this.form.subject || 'Contact Form'}`);
 
     const bodyParts = [
       `Name: ${this.form.name}`,
@@ -51,6 +54,6 @@ export class Contact {
       .join('\n');
 
     const body = encodeURIComponent(bodyParts);
-    window.location.href = `mailto:contact@fas-solutions.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${COMPANY.email}?subject=${subject}&body=${body}`;
   }
 }

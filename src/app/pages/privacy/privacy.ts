@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { COMPANY } from '../../core/company.config';
 
 @Component({
   selector: 'app-privacy',
@@ -7,4 +8,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './privacy.html',
   styleUrl: './privacy.scss',
 })
-export class Privacy {}
+export class Privacy {
+  readonly company = COMPANY;
+}

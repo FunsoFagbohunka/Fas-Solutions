@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { COMPANY } from '../../core/company.config';
 
 @Component({
   selector: 'app-terms',
@@ -7,4 +8,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './terms.html',
   styleUrl: './terms.scss',
 })
-export class Terms {}
+export class Terms {
+  readonly company = COMPANY;
+}

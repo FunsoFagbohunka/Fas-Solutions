@@ -126,8 +126,8 @@
           <p class="info-card__text">
             Prefer email? Reach out any time — we typically respond within 24 hours.
           </p>
-          <a href="mailto:contact@fas-solutions.com" class="info-card__link">
-            contact&#64;fas-solutions.com
+          <a [href]="'mailto:' + companyEmail" class="info-card__link">
+            {{ companyEmail }}
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path
                 d="M6 3L11 8L6 13"

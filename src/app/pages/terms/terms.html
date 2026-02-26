@@ -137,13 +137,11 @@
       <div class="legal-page__section">
         <h2 class="legal-page__section-title">12. Contact Us</h2>
         <div class="legal-page__contact-box">
-          <p class="legal-page__contact-title">FAS-Solutions – Fagbohunka</p>
+          <p class="legal-page__contact-title">{{ company.legalName }}</p>
           <p class="legal-page__text">
             For questions about these Terms, please contact us at:<br />
             Email:
-            <a href="mailto:legal@fas-solutions.ch" class="legal-page__link"
-              >legal&#64;fas-solutions.ch</a
-            >
+            <a [href]="'mailto:' + company.email" class="legal-page__link">{{ company.email }}</a>
           </p>
           <p class="legal-page__text">
             See also our
