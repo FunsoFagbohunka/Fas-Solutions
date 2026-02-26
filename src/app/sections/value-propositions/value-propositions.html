@@ -12,7 +12,9 @@
           [attr.data-aos]="odd ? 'fade-left' : 'fade-right'"
         >
           <div class="value-block__visual">
-            <div class="value-icon-box" [innerHTML]="val.svg"></div>
+            <div class="value-icon-box">
+              <app-icon [name]="val.icon" [size]="48"></app-icon>
+            </div>
           </div>
           <div class="value-block__content">
             <h3 class="value-block__title">{{ val.title }}</h3>
