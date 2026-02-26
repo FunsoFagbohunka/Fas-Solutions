@@ -22,7 +22,7 @@ export class Stats implements AfterViewInit {
     { value: 1, suffix: '+', label: 'Products Shipped', current: 0 },
     { value: 500, suffix: 'K+', label: 'Lines of Code Deployed', current: 0 },
     { value: 15, suffix: '+', label: 'Countries Served', current: 0 },
-    { value: 98, suffix: '%', label: 'Client Satisfaction', current: 0 },
+    // { value: 98, suffix: '%', label: 'Client Satisfaction', current: 0 },
   ];
 
   private hasAnimated = false;

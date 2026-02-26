@@ -26,8 +26,12 @@ export class Hero implements OnInit, OnDestroy {
       alt: 'Appointment scheduling UI',
       label: 'Scheduling',
     },
-    { src: 'assets/images/hero/video-call.webp', alt: 'Video call session', label: 'Sessions' },
-    { src: 'assets/images/hero/progress.webp', alt: 'Client progress tracking', label: 'Progress' },
+    {
+      src: 'assets/images/hero/video-call.webp',
+      alt: 'Search for therapists',
+      label: 'Find Therapists',
+    },
+    { src: 'assets/images/hero/progress.webp', alt: 'Therapist profiles', label: 'Profiles' },
   ];
 
   activeIndex = signal<number>(0);
