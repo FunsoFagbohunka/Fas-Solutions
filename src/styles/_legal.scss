@@ -1,0 +1,95 @@
+@use 'variables' as variables;
+@use 'mixins' as mixins;
+@use 'typography' as typography;
+
+.legal-page {
+  padding: variables.$space-11 0;
+  background: variables.$color-bg-white;
+  min-height: 60vh;
+}
+
+.legal-page__header {
+  text-align: center;
+  margin-bottom: variables.$space-9;
+}
+
+.legal-page__title {
+  font-family: typography.$font-heading;
+  font-weight: 800;
+  font-size: typography.$text-3xl;
+  color: variables.$color-text-primary;
+  margin-bottom: variables.$space-3;
+}
+
+.legal-page__updated {
+  font-family: typography.$font-body;
+  font-size: typography.$text-sm;
+  color: variables.$color-text-secondary;
+}
+
+.legal-page__content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.legal-page__section {
+  margin-bottom: variables.$space-7;
+}
+
+.legal-page__section-title {
+  font-family: typography.$font-heading;
+  font-weight: 700;
+  font-size: typography.$text-xl;
+  color: variables.$color-text-primary;
+  margin-bottom: variables.$space-3;
+  padding-bottom: variables.$space-2;
+  border-bottom: 2px solid rgba(variables.$color-primary, 0.1);
+}
+
+.legal-page__text {
+  font-family: typography.$font-body;
+  font-size: typography.$text-base;
+  color: variables.$color-text-secondary;
+  line-height: 1.8;
+  margin-bottom: variables.$space-3;
+}
+
+.legal-page__list {
+  font-family: typography.$font-body;
+  font-size: typography.$text-base;
+  color: variables.$color-text-secondary;
+  line-height: 1.8;
+  padding-left: variables.$space-5;
+  margin-bottom: variables.$space-3;
+
+  li {
+    margin-bottom: variables.$space-2;
+  }
+}
+
+.legal-page__link {
+  color: variables.$color-primary;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(variables.$color-primary, 0.3);
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: variables.$color-primary;
+  }
+}
+
+.legal-page__contact-box {
+  margin-top: variables.$space-6;
+  padding: variables.$space-5;
+  border-radius: variables.$radius-lg;
+  background: variables.$color-bg-light;
+  border: 1px solid variables.$color-border;
+}
+
+.legal-page__contact-title {
+  font-family: typography.$font-heading;
+  font-weight: 700;
+  font-size: typography.$text-lg;
+  color: variables.$color-text-primary;
+  margin-bottom: variables.$space-3;
+}

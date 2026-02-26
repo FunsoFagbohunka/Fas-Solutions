@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-privacy',
+  selector: 'app-terms',
   imports: [RouterLink],
-  templateUrl: './privacy.html',
-  styleUrl: './privacy.scss',
+  templateUrl: './terms.html',
+  styleUrl: './terms.scss',
 })
-export class Privacy {}
+export class Terms {}

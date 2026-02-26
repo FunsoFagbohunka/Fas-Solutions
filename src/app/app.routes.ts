@@ -22,6 +22,11 @@ export const routes: Routes = [
     title: 'Privacy Policy — FAS-Solutions',
   },
   {
+    path: 'terms',
+    loadComponent: () => import('./pages/terms/terms').then((m) => m.Terms),
+    title: 'Terms of Service — FAS-Solutions',
+  },
+  {
     path: '**',
     redirectTo: '',
   },

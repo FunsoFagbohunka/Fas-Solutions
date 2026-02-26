@@ -19,7 +19,6 @@ import { CtaBanner } from '../../sections/cta-banner/cta-banner';
     Stats,
     Testimonials,
     ValuePropositions,
-    Resources,
     CtaBanner,
   ],
   templateUrl: './home.html',

@@ -55,38 +55,26 @@
   align-items: center;
 }
 
-.value-icon-box {
-  width: 120px;
-  height: 120px;
-  border-radius: variables.$radius-2xl;
-  background: variables.$color-bg-light;
-  border: 1px solid variables.$color-border;
+.value-illustration {
+  width: 200px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: variables.$color-primary;
-  transition: all 0.4s ease;
-  position: relative;
+  transition: transform 0.4s ease;
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: variables.$radius-2xl;
-    background: variables.$gradient-brand;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  svg {
+    width: 100%;
+    height: 100%;
   }
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: variables.$shadow-lg;
-    border-color: transparent;
+  }
 
-    &::after {
-      opacity: 1;
-    }
+  @include mixins.respond-below(mixins.$bp-md) {
+    width: 160px;
+    height: 160px;
   }
 }
 
