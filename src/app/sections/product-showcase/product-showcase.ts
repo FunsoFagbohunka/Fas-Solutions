@@ -18,7 +18,7 @@ export class ProductShowcase {
     {
       icon: '🔒',
       title: 'Secure & Private',
-      description: 'End-to-end encrypted sessions with Swiss-grade data protection.',
+      description: 'End-to-end encrypted sessions.',
     },
     {
       icon: '📅',

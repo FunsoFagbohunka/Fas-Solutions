@@ -35,9 +35,9 @@
         <a href="#cta-banner" class="btn btn-outline-hero"> Work With Us </a>
       </div>
 
-      <div class="hero-trust fade-up-5">
+      <!-- <div class="hero-trust fade-up-5">
         <span class="trust-label">Swiss-registered · GDPR-compliant · Proven delivery</span>
-      </div>
+      </div> -->
     </div>
 
     <div class="hero-visual fade-up-6">
@@ -50,25 +50,21 @@
           </div>
           <div class="browser-tabs">
             @for (mockup of mockups; track mockup.src; let i = $index) {
-              <button
-                class="browser-tab"
-                [class.active]="activeIndex() === i"
-                (click)="setIndex(i)"
-              >
-                {{ mockup.label }}
-              </button>
+            <button class="browser-tab" [class.active]="activeIndex() === i" (click)="setIndex(i)">
+              {{ mockup.label }}
+            </button>
             }
           </div>
         </div>
 
         <div class="browser-content">
           @for (mockup of mockups; track mockup.src; let i = $index) {
-            <img
-              [src]="mockup.src"
-              [alt]="mockup.alt"
-              class="mockup-img"
-              [class.active]="activeIndex() === i"
-            />
+          <img
+            [src]="mockup.src"
+            [alt]="mockup.alt"
+            class="mockup-img"
+            [class.active]="activeIndex() === i"
+          />
           }
         </div>
       </div>

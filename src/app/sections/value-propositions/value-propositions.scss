@@ -12,11 +12,35 @@
   margin-bottom: variables.$space-9;
 }
 
+.label {
+  display: inline-block;
+  font-family: typography.$font-body;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: variables.$radius-full;
+  background: rgba(variables.$color-primary, 0.08);
+  color: variables.$color-primary;
+  margin-bottom: variables.$space-4;
+}
+
 .section-title {
   font-family: typography.$font-heading;
   font-weight: 800;
   font-size: typography.$text-3xl;
   color: variables.$color-text-primary;
+  margin-bottom: variables.$space-3;
+}
+
+.section-subtitle {
+  font-family: typography.$font-body;
+  font-size: typography.$text-lg;
+  color: variables.$color-text-secondary;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .values-list {
@@ -27,12 +51,12 @@
 
 .value-block {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: variables.$space-8;
   align-items: center;
 
   &--reverse {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
 
     .value-block__visual {
       order: 1;
@@ -55,26 +79,19 @@
   align-items: center;
 }
 
-.value-illustration {
-  width: 200px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.value-block__image {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  border-radius: variables.$radius-xl;
   transition: transform 0.4s ease;
 
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   @include mixins.respond-below(mixins.$bp-md) {
-    width: 160px;
-    height: 160px;
+    max-width: 300px;
   }
 }
 

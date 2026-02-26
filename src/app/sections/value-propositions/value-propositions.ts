@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 interface ValueProp {
   title: string;
   description: string;
-  illustrationId: string;
+  image: string;
+  imageAlt: string;
 }
 
 @Component({
@@ -16,28 +17,32 @@ interface ValueProp {
 export class ValuePropositions {
   values: ValueProp[] = [
     {
-      illustrationId: 'ownership',
-      title: 'End-to-End Ownership',
+      image: 'assets/images/values/ownership.png',
+      imageAlt: 'Team managing the full product lifecycle on a Kanban board',
+      title: 'We Own It, Start to Finish',
       description:
-        "We don't just build features — we own the entire product lifecycle from architecture to deployment and beyond.",
+        'No handoffs, no gaps. We take full responsibility from the first wireframe to production deployment — and stay to maintain, iterate, and scale your product as it grows.',
     },
     {
-      illustrationId: 'security',
-      title: 'Security by Default',
+      image: 'assets/images/values/security.png',
+      imageAlt: 'Secure cloud infrastructure with data protection',
+      title: 'Built Secure from Day One',
       description:
-        'GDPR-compliant, encrypted by design, privacy-first engineering. Every product we ship meets the highest standards.',
+        "Security isn't an afterthought — it's our foundation. Every product ships GDPR-compliant, encrypted, and privacy-first. Built in Switzerland, held to the highest standards.",
     },
     {
-      illustrationId: 'partnership',
-      title: 'Real Partnership, Not Outsourcing',
+      image: 'assets/images/values/partnership.png',
+      imageAlt: 'Two teams collaborating as partners',
+      title: 'A Partner, Not a Vendor',
       description:
-        'We work as an extension of your team. Regular communication, shared goals, transparent progress.',
+        "We don't disappear after delivery. We embed with your team — weekly standups, shared Slack channels, transparent roadmaps. Your goals are our goals.",
     },
     {
-      illustrationId: 'pricing',
-      title: 'Clear Pricing, No Surprises',
+      image: 'assets/images/values/launch.png',
+      imageAlt: 'Successful product launch with growth metrics',
+      title: 'From Idea to Revenue',
       description:
-        "Transparent project scoping and pricing. You always know what you're paying for and what's coming next.",
+        "We don't just write code — we ship products that generate business. YounitedTherapy is proof: conceived, built, and launched entirely by our team.",
     },
   ];
 }
