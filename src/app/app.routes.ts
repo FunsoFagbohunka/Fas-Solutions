@@ -27,6 +27,11 @@ export const routes: Routes = [
     title: 'Terms of Service — FAS-Solutions',
   },
   {
+    path: 'work',
+    loadComponent: () => import('./pages/work/work').then((m) => m.Work),
+    title: 'Our Work — FAS-Solutions',
+  },
+  {
     path: '**',
     redirectTo: '',
   },
