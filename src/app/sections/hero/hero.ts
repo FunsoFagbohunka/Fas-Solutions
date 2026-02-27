@@ -22,16 +22,16 @@ export class Hero implements OnInit, OnDestroy {
       label: 'Dashboard',
     },
     {
-      src: 'assets/images/hero/scheduling.webp',
+      src: 'assets/images/hero/scheduling.png',
       alt: 'Appointment scheduling UI',
       label: 'Scheduling',
     },
     {
-      src: 'assets/images/hero/video-call.webp',
+      src: 'assets/images/hero/video-call.png',
       alt: 'Search for therapists',
       label: 'Find Therapists',
     },
-    { src: 'assets/images/hero/progress.webp', alt: 'Therapist profiles', label: 'Profiles' },
+    { src: 'assets/images/hero/progress1.png', alt: 'Therapist profiles', label: 'Profiles' },
   ];
 
   activeIndex = signal<number>(0);
