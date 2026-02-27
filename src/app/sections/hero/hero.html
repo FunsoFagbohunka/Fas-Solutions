@@ -6,22 +6,24 @@
   <div class="container hero-container">
     <div class="hero-content">
       <div class="badge fade-up-1">
-        <span class="badge-text">SaaS · Software · Innovation</span>
+        <span class="badge-text">{{ 'hero.badge' | translate }}</span>
       </div>
 
       <h1 class="hero-title fade-up-2">
-        We build software
-        <span class="hero-title__accent">that <span class="text-gradient">matters.</span></span>
+        {{ 'hero.title_line1' | translate }}
+        <span class="hero-title__accent"
+          >{{ 'hero.title_line2' | translate }}
+          <span class="text-gradient">{{ 'hero.title_accent' | translate }}</span></span
+        >
       </h1>
 
       <p class="hero-description fade-up-3">
-        FAS-Solutions designs, builds, and scales SaaS platforms — from concept to launch. We also
-        help other businesses bring their ideas to life.
+        {{ 'hero.description' | translate }}
       </p>
 
       <div class="hero-actions fade-up-4">
         <a href="#product-showcase" class="btn btn-primary-hero">
-          <span>Explore Our Work</span>
+          <span>{{ 'hero.explore_work' | translate }}</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path
               d="M6 3L11 8L6 13"
@@ -32,12 +34,10 @@
             />
           </svg>
         </a>
-        <a routerLink="/contact" class="btn btn-outline-hero"> Work With Us </a>
+        <a routerLink="/contact" class="btn btn-outline-hero">
+          {{ 'hero.work_with_us' | translate }}
+        </a>
       </div>
-
-      <!-- <div class="hero-trust fade-up-5">
-        <span class="trust-label">Swiss-registered · GDPR-compliant · Proven delivery</span>
-      </div> -->
     </div>
 
     <div class="hero-visual fade-up-6">
@@ -50,21 +50,25 @@
           </div>
           <div class="browser-tabs">
             @for (mockup of mockups; track mockup.src; let i = $index) {
-            <button class="browser-tab" [class.active]="activeIndex() === i" (click)="setIndex(i)">
-              {{ mockup.label }}
-            </button>
+              <button
+                class="browser-tab"
+                [class.active]="activeIndex() === i"
+                (click)="setIndex(i)"
+              >
+                {{ mockup.labelKey | translate }}
+              </button>
             }
           </div>
         </div>
 
         <div class="browser-content">
           @for (mockup of mockups; track mockup.src; let i = $index) {
-          <img
-            [src]="mockup.src"
-            [alt]="mockup.alt"
-            class="mockup-img"
-            [class.active]="activeIndex() === i"
-          />
+            <img
+              [src]="mockup.src"
+              [alt]="mockup.alt"
+              class="mockup-img"
+              [class.active]="activeIndex() === i"
+            />
           }
         </div>
       </div>

@@ -1,56 +1,57 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface Resource {
-  badge: string;
+  badgeKey: string;
   badgeColor: string;
-  title: string;
-  linkText: string;
+  titleKey: string;
+  linkTextKey: string;
 }
 
 @Component({
   selector: 'app-resources',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './resources.html',
   styleUrl: './resources.scss',
 })
 export class Resources {
   resources: Resource[] = [
     {
-      badge: 'Case Study',
+      badgeKey: 'resources.badge_case_study',
       badgeColor: '#752dbe',
-      title: 'How we built YounitedTherapy from zero to launch',
-      linkText: 'Read study →',
+      titleKey: 'resources.article1_title',
+      linkTextKey: 'resources.article1_link',
     },
     {
-      badge: 'Engineering',
+      badgeKey: 'resources.badge_engineering',
       badgeColor: '#114f9d',
-      title: 'Designing a multi-tenant SaaS architecture',
-      linkText: 'Read article →',
+      titleKey: 'resources.article2_title',
+      linkTextKey: 'resources.article2_link',
     },
     {
-      badge: 'Tutorial',
+      badgeKey: 'resources.badge_tutorial',
       badgeColor: '#50428c',
-      title: 'Setting up real-time video with end-to-end encryption',
-      linkText: 'Read tutorial →',
+      titleKey: 'resources.article3_title',
+      linkTextKey: 'resources.article3_link',
     },
     {
-      badge: 'Blog',
+      badgeKey: 'resources.badge_blog',
       badgeColor: '#e5a100',
-      title: 'Lessons learned from internationalizing a SaaS platform',
-      linkText: 'Read post →',
+      titleKey: 'resources.article4_title',
+      linkTextKey: 'resources.article4_link',
     },
     {
-      badge: 'Case Study',
+      badgeKey: 'resources.badge_case_study',
       badgeColor: '#752dbe',
-      title: 'Building a GDPR-compliant scheduling engine',
-      linkText: 'Read study →',
+      titleKey: 'resources.article5_title',
+      linkTextKey: 'resources.article5_link',
     },
     {
-      badge: 'Engineering',
+      badgeKey: 'resources.badge_engineering',
       badgeColor: '#114f9d',
-      title: 'Scaling Angular applications for enterprise',
-      linkText: 'Read article →',
+      titleKey: 'resources.article6_title',
+      linkTextKey: 'resources.article6_link',
     },
   ];
 }

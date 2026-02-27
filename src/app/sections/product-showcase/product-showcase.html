@@ -3,28 +3,27 @@
     <div class="container">
       <div class="spotlight__grid">
         <div class="spotlight__content" data-aos="fade-right">
-          <span class="label">FLAGSHIP PRODUCT</span>
-          <h2 class="spotlight__title">Meet <span class="text-gradient">YounitedTherapy</span></h2>
+          <span class="label">{{ 'product.label' | translate }}</span>
+          <h2 class="spotlight__title">
+            {{ 'product.title_prefix' | translate }}
+            <span class="text-gradient">{{ 'product.title_name' | translate }}</span>
+          </h2>
           <p class="spotlight__desc">
-            YounitedTherapy is a secure, user-friendly online therapy platform designed to connect
-            individuals with mental health professionals. Access support from anywhere with a
-            private experience, flexible scheduling, and a smooth end-to-end journey from booking to
-            sessions
+            {{ 'product.desc1' | translate }}
           </p>
           <p class="spotlight__desc">
-            Built with security, simplicity, and empathy at its core — YounitedTherapy demonstrates
-            what FAS-Solutions can build: scalable, secure, user-first SaaS products.
+            {{ 'product.desc2' | translate }}
           </p>
 
           <div class="highlight-cards">
-            @for (card of highlights; track card.title) {
-            <div class="highlight-card">
-              <span class="highlight-card__icon">{{ card.icon }}</span>
-              <div>
-                <h4 class="highlight-card__title">{{ card.title }}</h4>
-                <p class="highlight-card__desc">{{ card.description }}</p>
+            @for (card of highlights; track card.titleKey) {
+              <div class="highlight-card">
+                <span class="highlight-card__icon">{{ card.icon }}</span>
+                <div>
+                  <h4 class="highlight-card__title">{{ card.titleKey | translate }}</h4>
+                  <p class="highlight-card__desc">{{ card.descKey | translate }}</p>
+                </div>
               </div>
-            </div>
             }
           </div>
 
@@ -35,7 +34,7 @@
               rel="noopener"
               class="btn btn--solid"
             >
-              Visit YounitedTherapy
+              {{ 'product.visit_btn' | translate }}
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M6 3L11 8L6 13"
@@ -46,7 +45,6 @@
                 />
               </svg>
             </a>
-            <!-- <a routerLink="/work" class="btn btn--ghost"> See More Work </a> -->
           </div>
         </div>
 
@@ -63,7 +61,7 @@
 
       <div class="pipeline-teaser" data-aos="fade-up" data-aos-delay="300">
         <span class="pipeline-teaser__icon">🔮</span>
-        <span class="pipeline-teaser__text">More products in the pipeline. Stay tuned.</span>
+        <span class="pipeline-teaser__text">{{ 'product.pipeline' | translate }}</span>
       </div>
     </div>
   </div>

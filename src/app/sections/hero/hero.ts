@@ -1,16 +1,18 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { TranslationService } from '../../core/i18n/translation.service';
 
 interface MockupImage {
   src: string;
   alt: string;
-  label: string;
+  labelKey: string;
 }
 
 @Component({
   selector: 'app-hero',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslatePipe],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
@@ -19,23 +21,29 @@ export class Hero implements OnInit, OnDestroy {
     {
       src: 'assets/images/hero/dashboard.webp',
       alt: 'Therapist dashboard overview',
-      label: 'Dashboard',
+      labelKey: 'hero.tab_dashboard',
     },
     {
       src: 'assets/images/hero/scheduling.png',
       alt: 'Appointment scheduling UI',
-      label: 'Scheduling',
+      labelKey: 'hero.tab_scheduling',
     },
     {
       src: 'assets/images/hero/video-call.png',
       alt: 'Search for therapists',
-      label: 'Find Therapists',
+      labelKey: 'hero.tab_find_therapists',
     },
-    { src: 'assets/images/hero/progress1.png', alt: 'Therapist profiles', label: 'Profiles' },
+    {
+      src: 'assets/images/hero/progress.png',
+      alt: 'Therapist profiles',
+      labelKey: 'hero.tab_profiles',
+    },
   ];
 
   activeIndex = signal<number>(0);
   private intervalId: any;
+
+  constructor(public i18n: TranslationService) {}
 
   ngOnInit(): void {
     this.startAutoplay();

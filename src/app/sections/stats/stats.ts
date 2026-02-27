@@ -1,17 +1,18 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID, inject } from '@angular/core';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface Stat {
   value: number;
   suffix: string;
-  label: string;
+  labelKey: string;
   current: number;
 }
 
 @Component({
   selector: 'app-stats',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './stats.html',
   styleUrl: './stats.scss',
 })
@@ -19,10 +20,9 @@ export class Stats implements AfterViewInit {
   private platformId = inject(PLATFORM_ID);
 
   stats: Stat[] = [
-    { value: 1, suffix: '+', label: 'Products Shipped', current: 0 },
-    { value: 500, suffix: 'K+', label: 'Lines of Code Deployed', current: 0 },
-    { value: 15, suffix: '+', label: 'Countries Served', current: 0 },
-    // { value: 98, suffix: '%', label: 'Client Satisfaction', current: 0 },
+    { value: 1, suffix: '+', labelKey: 'stats.products_shipped', current: 0 },
+    { value: 500, suffix: 'K+', labelKey: 'stats.lines_of_code', current: 0 },
+    { value: 15, suffix: '+', labelKey: 'stats.countries', current: 0 },
   ];
 
   private hasAnimated = false;

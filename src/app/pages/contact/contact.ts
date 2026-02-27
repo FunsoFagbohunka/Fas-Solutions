@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { COMPANY } from '../../core/company.config';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { TranslationService } from '../../core/i18n/translation.service';
 
 interface ContactForm {
   name: string;
@@ -13,7 +15,7 @@ interface ContactForm {
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
@@ -28,15 +30,17 @@ export class Contact {
     message: '',
   };
 
-  subjects = [
-    'Product Development',
-    'AI Integration',
-    'Custom Software Solutions',
-    'Cloud & DevOps',
-    'Technical Consulting',
-    'General Inquiry',
-    'Partnership Opportunity',
+  subjectKeys = [
+    'contact.subject_product_dev',
+    'contact.subject_ai',
+    'contact.subject_custom',
+    'contact.subject_cloud',
+    'contact.subject_consulting',
+    'contact.subject_general',
+    'contact.subject_partnership',
   ];
+
+  constructor(public i18n: TranslationService) {}
 
   onSubmit(): void {
     const subject = encodeURIComponent(`[${COMPANY.name}] ${this.form.subject || 'Contact Form'}`);

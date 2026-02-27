@@ -5,15 +5,13 @@
     </a>
 
     <nav class="desktop-nav d-flex align-items-center gap-4 hidden-mobile">
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#product-showcase" class="nav-link">Products</a>
-      <a href="#capabilities" class="nav-link">Capabilities</a>
-      <!-- <a href="#testimonials" class="nav-link">Testimonials</a>
-      <a href="#insights" class="nav-link">Insights</a> -->
+      <a href="#services" class="nav-link">{{ 'header.services' | translate }}</a>
+      <a href="#product-showcase" class="nav-link">{{ 'header.products' | translate }}</a>
+      <a href="#capabilities" class="nav-link">{{ 'header.capabilities' | translate }}</a>
     </nav>
 
     <div class="cta-container hidden-mobile">
-      <a routerLink="/contact" class="btn btn-primary"> Let's Talk </a>
+      <a routerLink="/contact" class="btn btn-primary"> {{ 'header.lets_talk' | translate }} </a>
     </div>
 
     <button
@@ -33,12 +31,24 @@
 <div class="mobile-drawer" [class.mobile-drawer--open]="isMobileMenuOpen">
   <div class="mobile-drawer__overlay" (click)="closeMobileMenu()"></div>
   <nav class="mobile-drawer__panel">
-    <a href="#services" class="mobile-drawer__link" (click)="closeMobileMenu()">Services</a>
-    <a href="#product-showcase" class="mobile-drawer__link" (click)="closeMobileMenu()">Products</a>
-    <a href="#capabilities" class="mobile-drawer__link" (click)="closeMobileMenu()">Capabilities</a>
-    <a href="#testimonials" class="mobile-drawer__link" (click)="closeMobileMenu()">Testimonials</a>
-    <a href="#insights" class="mobile-drawer__link" (click)="closeMobileMenu()">Insights</a>
+    <a href="#services" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
+      'header.services' | translate
+    }}</a>
+    <a href="#product-showcase" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
+      'header.products' | translate
+    }}</a>
+    <a href="#capabilities" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
+      'header.capabilities' | translate
+    }}</a>
+    <a href="#testimonials" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
+      'header.testimonials' | translate
+    }}</a>
+    <a href="#insights" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
+      'header.insights' | translate
+    }}</a>
     <div class="mobile-drawer__divider"></div>
-    <a routerLink="/contact" class="mobile-drawer__cta" (click)="closeMobileMenu()">Let's Talk</a>
+    <a routerLink="/contact" class="mobile-drawer__cta" (click)="closeMobileMenu()">{{
+      'header.lets_talk' | translate
+    }}</a>
   </nav>
 </div>

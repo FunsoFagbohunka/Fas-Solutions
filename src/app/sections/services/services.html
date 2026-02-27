@@ -1,23 +1,22 @@
 <section class="services-section" id="services">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <span class="label">WHAT WE DO</span>
-      <h2 class="section-title">We build. We ship. We scale.</h2>
+      <span class="label">{{ 'services.label' | translate }}</span>
+      <h2 class="section-title">{{ 'services.title' | translate }}</h2>
       <p class="section-subtitle">
-        From idea to production — we partner with businesses to design, develop, and launch SaaS
-        platforms.
+        {{ 'services.subtitle' | translate }}
       </p>
     </div>
 
     <div class="services-grid">
-      @for (service of services; track service.title; let i = $index) {
+      @for (service of services; track service.titleKey; let i = $index) {
         <div class="service-card" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
           <div class="service-card__accent"></div>
           <div class="service-card__icon">
             <app-icon [name]="service.icon"></app-icon>
           </div>
-          <h3 class="service-card__title">{{ service.title }}</h3>
-          <p class="service-card__desc">{{ service.description }}</p>
+          <h3 class="service-card__title">{{ service.titleKey | translate }}</h3>
+          <p class="service-card__desc">{{ service.descKey | translate }}</p>
         </div>
       }
     </div>

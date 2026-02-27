@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface Testimonial {
   quote: string;
@@ -10,7 +11,7 @@ interface Testimonial {
 
 @Component({
   selector: 'app-testimonials',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './testimonials.html',
   styleUrl: './testimonials.scss',
 })

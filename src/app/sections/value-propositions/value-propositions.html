@@ -1,15 +1,15 @@
 <section class="values-section" id="value-propositions">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
-      <span class="label">WHY FAS-SOLUTIONS</span>
-      <h2 class="section-title">Why teams choose us</h2>
+      <span class="label">{{ 'values.label' | translate }}</span>
+      <h2 class="section-title">{{ 'values.title' | translate }}</h2>
       <p class="section-subtitle">
-        We're not just another dev shop. Here's what makes working with us different.
+        {{ 'values.subtitle' | translate }}
       </p>
     </div>
 
     <div class="values-list">
-      @for (val of values; track val.title; let i = $index; let odd = $odd) {
+      @for (val of values; track val.titleKey; let i = $index; let odd = $odd) {
         <div
           class="value-block"
           [class.value-block--reverse]="odd"
@@ -19,8 +19,8 @@
             <img [src]="val.image" [alt]="val.imageAlt" class="value-block__image" loading="lazy" />
           </div>
           <div class="value-block__content">
-            <h3 class="value-block__title">{{ val.title }}</h3>
-            <p class="value-block__desc">{{ val.description }}</p>
+            <h3 class="value-block__title">{{ val.titleKey | translate }}</h3>
+            <p class="value-block__desc">{{ val.descKey | translate }}</p>
           </div>
         </div>
       }

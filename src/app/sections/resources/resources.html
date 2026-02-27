@@ -2,27 +2,26 @@
   <div class="container">
     <div class="section-header" data-aos="fade-up">
       <div class="section-header__top">
-        <h2 class="section-title">Dive In</h2>
-        <a href="#" class="docs-link">Documentation →</a>
+        <h2 class="section-title">{{ 'resources.title' | translate }}</h2>
+        <a href="#" class="docs-link">{{ 'resources.docs_link' | translate }}</a>
       </div>
       <p class="section-subtitle">
-        Insights from our team — case studies, engineering deep-dives, and lessons learned from
-        building SaaS products.
+        {{ 'resources.subtitle' | translate }}
       </p>
     </div>
 
     <div class="resources-grid">
-      @for (resource of resources; track resource.title; let i = $index) {
+      @for (resource of resources; track resource.titleKey; let i = $index) {
         <div class="resource-card" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 80">
           <span
             class="resource-badge"
             [style.background]="resource.badgeColor + '18'"
             [style.color]="resource.badgeColor"
           >
-            {{ resource.badge }}
+            {{ resource.badgeKey | translate }}
           </span>
-          <h3 class="resource-card__title">{{ resource.title }}</h3>
-          <a href="#" class="resource-card__link">{{ resource.linkText }}</a>
+          <h3 class="resource-card__title">{{ resource.titleKey | translate }}</h3>
+          <a href="#" class="resource-card__link">{{ resource.linkTextKey | translate }}</a>
         </div>
       }
     </div>

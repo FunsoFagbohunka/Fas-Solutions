@@ -5,10 +5,10 @@
     <div class="container">
       <div class="flagship__grid">
         <div class="flagship__content" data-aos="fade-right">
-          <span class="flagship__badge">● Live · Flagship Product</span>
+          <span class="flagship__badge">{{ 'work.flagship_badge' | translate }}</span>
           <h1 class="flagship__title">{{ flagship.title }}</h1>
-          <p class="flagship__category">{{ flagship.category }}</p>
-          <p class="flagship__desc">{{ flagship.description }}</p>
+          <p class="flagship__category">{{ flagship.categoryKey | translate }}</p>
+          <p class="flagship__desc">{{ flagship.descKey | translate }}</p>
           <div class="flagship__tags">
             @for (tag of flagship.tags; track tag) {
               <span class="flagship__tag">{{ tag }}</span>
@@ -16,7 +16,7 @@
           </div>
           @if (flagship.link) {
             <a [href]="flagship.link" target="_blank" rel="noopener" class="flagship__btn">
-              Visit Live Product
+              {{ 'work.visit_live' | translate }}
               <svg
                 width="14"
                 height="14"
@@ -51,7 +51,7 @@
   <section class="projects-section">
     <div class="container">
       <div class="projects-header" data-aos="fade-up">
-        <h2 class="projects-header__title">More from our workshop</h2>
+        <h2 class="projects-header__title">{{ 'work.more_title' | translate }}</h2>
       </div>
 
       <div class="bento-grid">
@@ -68,23 +68,23 @@
             </div>
             <div class="bento-card__content">
               <div class="bento-card__meta">
-                <span class="bento-card__category">{{ project.category }}</span>
+                <span class="bento-card__category">{{ project.categoryKey | translate }}</span>
                 <span class="bento-card__status" [attr.data-status]="project.status">
                   @switch (project.status) {
                     @case ('live') {
-                      ● Live
+                      {{ 'work.status_live' | translate }}
                     }
                     @case ('in-progress') {
-                      ◐ Building
+                      {{ 'work.status_building' | translate }}
                     }
                     @case ('coming-soon') {
-                      ○ Soon
+                      {{ 'work.status_soon' | translate }}
                     }
                   }
                 </span>
               </div>
               <h3 class="bento-card__title">{{ project.title }}</h3>
-              <p class="bento-card__desc">{{ project.description }}</p>
+              <p class="bento-card__desc">{{ project.descKey | translate }}</p>
               <div class="bento-card__tags">
                 @for (tag of project.tags; track tag) {
                   <span class="bento-card__tag">{{ tag }}</span>
@@ -97,9 +97,9 @@
 
       <!-- Bottom CTA -->
       <div class="work-cta" data-aos="fade-up">
-        <p class="work-cta__text">Have a project in mind?</p>
+        <p class="work-cta__text">{{ 'work.cta_text' | translate }}</p>
         <a routerLink="/contact" class="work-cta__link">
-          Let's talk
+          {{ 'work.cta_link' | translate }}
           <svg
             width="16"
             height="16"
