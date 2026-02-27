@@ -19,7 +19,7 @@ interface MockupImage {
 export class Hero implements OnInit, OnDestroy {
   mockups: MockupImage[] = [
     {
-      src: 'assets/images/hero/dashboard.webp',
+      src: 'assets/images/hero/dashboard.png',
       alt: 'Therapist dashboard overview',
       labelKey: 'hero.tab_dashboard',
     },
