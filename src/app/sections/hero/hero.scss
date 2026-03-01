@@ -13,6 +13,11 @@
   background: variables.$gradient-hero;
   overflow: hidden;
   padding: 140px 0 variables.$space-10;
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    padding: 120px 0 variables.$space-6;
+    min-height: auto;
+  }
 }
 
 // ---- Decorative background elements ----
@@ -63,6 +68,10 @@
     text-align: center;
     gap: variables.$space-7;
   }
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    gap: variables.$space-5;
+  }
 }
 
 // ---- Left column: text content ----
@@ -105,6 +114,11 @@
   color: variables.$color-text-on-dark;
   margin-bottom: variables.$space-5;
 
+  @include mixins.respond-below(mixins.$bp-sm) {
+    font-size: clamp(1.6rem, 1.2rem + 2vw, 2.2rem);
+    line-height: 1.2;
+  }
+
   &__accent {
     display: block;
     margin-top: variables.$space-1;
@@ -130,6 +144,12 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    max-width: 100%;
+    font-size: typography.$text-base;
+    line-height: 1.6;
+  }
 }
 
 .hero-actions {
@@ -141,6 +161,17 @@
   @include mixins.respond-below(mixins.$bp-lg) {
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    flex-direction: column;
+    gap: variables.$space-3;
+    width: 100%;
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 }
 
@@ -208,6 +239,11 @@
     max-width: 560px;
     margin: 0 auto;
   }
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    max-width: 100%;
+    margin: 0 auto;
+  }
 }
 
 .mockup-browser {
@@ -224,6 +260,15 @@
   &:hover {
     transform: perspective(1200px) rotateY(0) rotateX(0);
   }
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    transform: none;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+
+    &:hover {
+      transform: none;
+    }
+  }
 }
 
 // ---- Fake browser chrome bar ----
@@ -234,12 +279,21 @@
   padding: 10px 16px;
   background: rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    gap: variables.$space-2;
+    padding: 8px 8px;
+  }
 }
 
 .browser-dots {
   display: flex;
   gap: 6px;
   flex-shrink: 0;
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    display: none;
+  }
 
   .dot {
     width: 10px;
@@ -261,8 +315,16 @@
 .browser-tabs {
   display: flex;
   gap: 2px;
+  flex: 1;
+  min-width: 0;
   flex-wrap: nowrap;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .browser-tab {
@@ -286,6 +348,11 @@
     color: rgba(255, 255, 255, 0.7);
     background: rgba(255, 255, 255, 0.04);
   }
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    padding: 4px 8px;
+    font-size: 0.65rem;
+  }
 }
 
 // ---- Mockup content area ----
@@ -294,6 +361,10 @@
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #1e1636;
+
+  @include mixins.respond-below(mixins.$bp-sm) {
+    aspect-ratio: 16 / 11;
+  }
 }
 
 .mockup-img {

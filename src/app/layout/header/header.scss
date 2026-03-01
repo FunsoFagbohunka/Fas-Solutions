@@ -179,6 +179,7 @@
   font-size: typography.$text-base;
   text-align: center;
   transition: all 0.3s ease;
+  margin-top: variables.$space-5;
 
   &:hover {
     transform: translateY(-2px);
