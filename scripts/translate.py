@@ -5,8 +5,10 @@ Usage: python scripts/translate.py
 
 import json
 import os
+import re
 import time
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 try:
     from deep_translator import GoogleTranslator
@@ -26,6 +28,9 @@ SOURCE_LANG = "en"
 # Target languages (code -> Google Translate code)
 # Skip languages that already have translation files
 TARGET_LANGUAGES = {
+    "de": "de",       # German
+    "fr": "fr",       # French
+    "it": "it",       # Italian
     "es": "es",       # Spanish
     "pt": "pt",       # Portuguese
     "nl": "nl",       # Dutch
@@ -104,11 +109,15 @@ def translate_value(text, target_lang, translator):
     if not text or not text.strip():
         return text
 
-    # Replace preserve terms with placeholders before translation
+    # Replace preserve terms with placeholders before translation.
+    # Use [KN] format — no underscores, compact, clearly non-linguistic.
+    # Double-underscore __KEEPN__ looks like Markdown bold and confuses Google
+    # Translate when fused to adjacent text (e.g. __KEEP3__-compliant), causing
+    # garbled output and "No translation was found" errors.
     placeholders = {}
     modified_text = text
     for i, term in enumerate(PRESERVE_TERMS):
-        placeholder = f"__KEEP{i}__"
+        placeholder = f"[K{i}]"
         if term in modified_text:
             placeholders[placeholder] = term
             modified_text = modified_text.replace(term, placeholder)
@@ -116,6 +125,8 @@ def translate_value(text, target_lang, translator):
     # Translate
     try:
         translated = translator.translate(modified_text)
+        if not translated:
+            return text
     except Exception as e:
         print(f"    ⚠️  Translation failed for '{text[:50]}...': {e}")
         return text
@@ -123,9 +134,8 @@ def translate_value(text, target_lang, translator):
     # Restore preserved terms
     for placeholder, term in placeholders.items():
         translated = translated.replace(placeholder, term)
-        # Also handle cases where Google might have modified the placeholder
+        # Fallback: handle Google lowercasing the placeholder
         translated = translated.replace(placeholder.lower(), term)
-        translated = translated.replace(placeholder.replace("__", ""), term)
 
     return translated
 
@@ -135,9 +145,9 @@ def translate_file(source_data, target_lang_code, google_lang_code):
     output_path = os.path.join(I18N_DIR, f"{target_lang_code}.json")
 
     # Skip if file already exists
-    if os.path.exists(output_path):
-        print(f"  ⏭️  Skipping {target_lang_code} — file already exists")
-        return
+    # if os.path.exists(output_path):
+    #     print(f"  ⏭️  Skipping {target_lang_code} — file already exists")
+    #     return
 
     print(f"\n🌐 Translating to {target_lang_code} ({google_lang_code})...")
     translator = GoogleTranslator(source=SOURCE_LANG, target=google_lang_code)
@@ -172,13 +182,28 @@ def main():
     source_data = load_json(source_path)
     print(f"📖 Loaded {len(source_data)} translation keys from {SOURCE_LANG}.json")
 
-    # Translate to each target language
-    for lang_code, google_code in TARGET_LANGUAGES.items():
+    # Run up to CONCURRENCY language translations at a time.
+    # Each language gets its own GoogleTranslator instance inside translate_file,
+    # so there are no shared mutable objects between threads.
+    # Keep this at 2-3 to stay well within Google Translate's rate limits.
+    CONCURRENCY = 3
+
+    languages = list(TARGET_LANGUAGES.items())
+
+    def run(item):
+        lang_code, google_code = item
         try:
             translate_file(source_data, lang_code, google_code)
         except Exception as e:
             print(f"  ❌ Failed to translate {lang_code}: {e}")
-            continue
+
+    with ThreadPoolExecutor(max_workers=CONCURRENCY) as executor:
+        futures = {executor.submit(run, item): item[0] for item in languages}
+        for future in as_completed(futures):
+            lang = futures[future]
+            exc = future.exception()
+            if exc:
+                print(f"  ❌ Thread error for {lang}: {exc}")
 
     print("\n🎉 All translations complete!")
     print(f"📁 Files saved to: {I18N_DIR}")
