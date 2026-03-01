@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
-    title: 'FAS-Solutions — Swiss Health-Tech Innovation',
+    title: 'FAS-Solutions — Software & SaaS Platform Development',
   },
   {
     path: 'about',
