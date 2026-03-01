@@ -5,9 +5,13 @@
     </a>
 
     <nav class="desktop-nav d-flex align-items-center gap-4 hidden-mobile">
-      <a href="#services" class="nav-link">{{ 'header.services' | translate }}</a>
-      <a href="#product-showcase" class="nav-link">{{ 'header.products' | translate }}</a>
-      <a href="#capabilities" class="nav-link">{{ 'header.capabilities' | translate }}</a>
+      <a routerLink="/" fragment="services" class="nav-link">{{ 'header.services' | translate }}</a>
+      <a routerLink="/" fragment="product-showcase" class="nav-link">
+        {{ 'header.products' | translate }}
+      </a>
+      <a routerLink="/" fragment="capabilities" class="nav-link">
+        {{ 'header.capabilities' | translate }}
+      </a>
     </nav>
 
     <div class="cta-container hidden-mobile">
@@ -31,24 +35,38 @@
 <div class="mobile-drawer" [class.mobile-drawer--open]="isMobileMenuOpen">
   <div class="mobile-drawer__overlay" (click)="closeMobileMenu()"></div>
   <nav class="mobile-drawer__panel">
-    <a href="#services" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
-      'header.services' | translate
-    }}</a>
-    <a href="#product-showcase" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
-      'header.products' | translate
-    }}</a>
-    <a href="#capabilities" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
-      'header.capabilities' | translate
-    }}</a>
-    <a href="#testimonials" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
-      'header.testimonials' | translate
-    }}</a>
-    <a href="#insights" class="mobile-drawer__link" (click)="closeMobileMenu()">{{
-      'header.insights' | translate
-    }}</a>
+    <a routerLink="/" fragment="services" class="mobile-drawer__link" (click)="closeMobileMenu()">
+      {{ 'header.services' | translate }}
+    </a>
+    <a
+      routerLink="/"
+      fragment="product-showcase"
+      class="mobile-drawer__link"
+      (click)="closeMobileMenu()"
+    >
+      {{ 'header.products' | translate }}
+    </a>
+
+    <a
+      routerLink="/"
+      fragment="capabilities"
+      class="mobile-drawer__link"
+      (click)="closeMobileMenu()"
+      >{{ 'header.capabilities' | translate }}
+    </a>
+    <a
+      routerLink="/"
+      fragment="testimonials"
+      class="mobile-drawer__link"
+      (click)="closeMobileMenu()"
+      >{{ 'header.testimonials' | translate }}
+    </a>
+    <a routerLink="/" fragment="insights" class="mobile-drawer__link" (click)="closeMobileMenu()">
+      {{ 'header.insights' | translate }}
+    </a>
     <div class="mobile-drawer__divider"></div>
-    <a routerLink="/contact" class="mobile-drawer__cta" (click)="closeMobileMenu()">{{
-      'header.lets_talk' | translate
-    }}</a>
+    <a routerLink="/contact" class="mobile-drawer__cta" (click)="closeMobileMenu()">
+      {{ 'header.lets_talk' | translate }}
+    </a>
   </nav>
 </div>
