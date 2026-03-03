@@ -4,7 +4,7 @@
  */
 export const COMPANY = {
   name: 'FAS-Solutions',
-  legalName: 'FAS-Solutions - Fagbohunka',
+  legalName: 'FAS-Solutions',
   email: 'support@fas-solutions.com',
   website: 'https://fas-solutions.com',
 } as const;
