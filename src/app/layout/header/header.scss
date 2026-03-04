@@ -28,6 +28,10 @@
   .header--scrolled & {
     color: variables.$color-primary-light;
   }
+
+  @include mixins.respond-below(mixins.$bp-xs) {
+    font-size: typography.$text-base;
+  }
 }
 
 .nav-link {
@@ -135,6 +139,7 @@
   top: 0;
   right: 0;
   width: 280px;
+  max-width: 100vw;
   height: 100%;
   background: variables.$color-bg-dark;
   padding: variables.$space-12 variables.$space-6 variables.$space-6;
@@ -144,6 +149,11 @@
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: -8px 0 30px rgba(0, 0, 0, 0.3);
+
+  @include mixins.respond-below(mixins.$bp-xs) {
+    width: 92vw;
+    padding: variables.$space-12 variables.$space-4 variables.$space-4;
+  }
 }
 
 .mobile-drawer__link {

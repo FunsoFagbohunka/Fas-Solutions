@@ -19,7 +19,7 @@ html {
 section[id] {
   scroll-margin-top: 80px;
   overflow: hidden;
-  width: 100vw;
+  max-width: 100%;
 }
 
 body {
