@@ -1,5 +1,6 @@
 // _utilities.scss
 @use 'variables' as variables;
+@use 'mixins' as mixins;
 
 .container {
   width: 100%;
@@ -8,6 +9,11 @@
   margin-right: auto;
   padding-left: variables.$container-padding;
   padding-right: variables.$container-padding;
+
+  @include mixins.respond-below(mixins.$bp-xs) {
+    padding-left: variables.$space-3;
+    padding-right: variables.$space-3;
+  }
 }
 
 .text-center {

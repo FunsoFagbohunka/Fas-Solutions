@@ -5,6 +5,10 @@
 .services-section {
   padding: variables.$space-11 0;
   background: variables.$color-bg-light;
+
+  @include mixins.respond-below(mixins.$bp-xs) {
+    padding: variables.$space-7 0;
+  }
 }
 
 .section-header {
@@ -63,6 +67,10 @@
   border: 1px solid variables.$color-border;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include mixins.respond-below(mixins.$bp-xs) {
+    padding: variables.$space-4;
+  }
 
   &:hover {
     transform: translateY(-4px);

@@ -71,14 +71,18 @@
 
   @include mixins.respond-below(mixins.$bp-sm) {
     gap: variables.$space-5;
+    padding: 0;
   }
 }
 
 // ---- Left column: text content ----
 .hero-content {
   @include mixins.respond-below(mixins.$bp-lg) {
-    max-width: 600px;
+    max-width: min(600px, 90%);
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -104,6 +108,15 @@
     letter-spacing: 1.2px;
     text-transform: uppercase;
   }
+
+  @include mixins.respond-below(mixins.$bp-xs) {
+    padding: 4px variables.$space-2;
+
+    .badge-text {
+      font-size: 0.6rem;
+      letter-spacing: 0.6px;
+    }
+  }
 }
 
 .hero-title {
@@ -117,6 +130,13 @@
   @include mixins.respond-below(mixins.$bp-sm) {
     font-size: clamp(1.6rem, 1.2rem + 2vw, 2.2rem);
     line-height: 1.2;
+  }
+
+  @include mixins.respond-below(mixins.$bp-xs) {
+    font-size: clamp(1.1rem, 0.8rem + 3vw, 1.6rem);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   &__accent {
@@ -189,6 +209,14 @@
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
+
+  @include mixins.respond-below(mixins.$bp-xs) {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    gap: variables.$space-1;
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 .btn-primary-hero {
@@ -241,8 +269,10 @@
   }
 
   @include mixins.respond-below(mixins.$bp-sm) {
-    max-width: 100%;
+    max-width: 90vw;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -264,6 +294,8 @@
   @include mixins.respond-below(mixins.$bp-sm) {
     transform: none;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    max-width: 100%;
+    overflow: auto;
 
     &:hover {
       transform: none;
