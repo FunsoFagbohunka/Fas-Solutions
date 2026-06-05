@@ -1,5 +1,14 @@
-import { Injectable, PLATFORM_ID, inject, signal, computed, TransferState, makeStateKey } from '@angular/core';
+import {
+  Injectable,
+  PLATFORM_ID,
+  inject,
+  signal,
+  computed,
+  TransferState,
+  makeStateKey,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { TRANSLATION_LOADER } from './translation-loader';
 
 export interface Language {
   code: string;
@@ -44,6 +53,7 @@ const STORAGE_KEY = 'fas-lang';
 export class TranslationService {
   private platformId = inject(PLATFORM_ID);
   private transferState = inject(TransferState);
+  private translationLoader = inject(TRANSLATION_LOADER);
   private translations = signal<Record<string, string>>({});
   private _currentLang = signal<string>('en');
 
@@ -126,18 +136,12 @@ export class TranslationService {
         this.transferState.remove(stateKey);
         return transferred;
       }
-      // Fetch normally (e.g. user switches language after hydration)
-      const response = await fetch(`/assets/i18n/${langCode}.json`);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
     }
 
-    // Server: read from filesystem and embed in TransferState
-    const { readFileSync } = await import('fs');
-    const { join } = await import('path');
-    const filePath = join(process.cwd(), 'public', 'assets', 'i18n', `${langCode}.json`);
-    const content: Record<string, string> = JSON.parse(readFileSync(filePath, 'utf-8'));
-    this.transferState.set(stateKey, content);
+    const content = await this.translationLoader.load(langCode);
+    if (!isPlatformBrowser(this.platformId)) {
+      this.transferState.set(stateKey, content);
+    }
     return content;
   }
 

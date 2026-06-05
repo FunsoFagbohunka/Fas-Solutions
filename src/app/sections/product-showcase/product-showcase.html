@@ -6,7 +6,13 @@
           <span class="label">{{ 'product.label' | translate }}</span>
           <h2 class="spotlight__title">
             {{ 'product.title_prefix' | translate }}
-            <span class="text-gradient">{{ 'product.title_name' | translate }}</span>
+            <a
+              href="https://younitedtherapy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gradient"
+              >{{ 'product.title_name' | translate }}</a
+            >
           </h2>
           <p class="spotlight__desc">
             {{ 'product.desc1' | translate }}
@@ -14,6 +20,17 @@
           <p class="spotlight__desc">
             {{ 'product.desc2' | translate }}
           </p>
+
+          <div class="spotlight__actions">
+            <a
+              href="https://younitedtherapy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--solid"
+            >
+              {{ 'product.visit_btn' | translate }}
+            </a>
+          </div>
 
           <div class="highlight-cards">
             @for (card of highlights; track card.titleKey) {
@@ -26,8 +43,6 @@
               </div>
             }
           </div>
-
-   
         </div>
 
         <div class="spotlight__visual" data-aos="fade-left" data-aos-delay="200">
