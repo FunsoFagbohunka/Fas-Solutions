@@ -1,60 +1,49 @@
 <section class="product-showcase" id="product-showcase">
   <div class="spotlight">
-    <div class="container">
+    <div class="container product">
+      @for (product of products; track $index) {
       <div class="spotlight__grid">
         <div class="spotlight__content" data-aos="fade-right">
-          <span class="label">{{ 'product.label' | translate }}</span>
+          <span class="label">{{ product.label | translate }}</span>
           <h2 class="spotlight__title">
-            {{ 'product.title_prefix' | translate }}
-            <a
-              href="https://younitedtherapy.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-gradient"
-              >{{ 'product.title_name' | translate }}</a
-            >
+            {{ product.title | translate }}
+            <a [href]="product.link" target="_blank" rel="noopener noreferrer" class="text-gradient">
+              {{ product.linkText | translate }}
+            </a>
           </h2>
           <p class="spotlight__desc">
-            {{ 'product.desc1' | translate }}
+            {{ product.desc1 | translate }}
           </p>
           <p class="spotlight__desc">
-            {{ 'product.desc2' | translate }}
+            {{ product.desc2 | translate }}
           </p>
 
           <div class="spotlight__actions">
-            <a
-              href="https://younitedtherapy.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn--solid"
-            >
-              {{ 'product.visit_btn' | translate }}
+            <a [href]="product.link" target="_blank" rel="noopener noreferrer" class="btn btn--solid">
+              {{ product.visitText | translate }}
             </a>
           </div>
 
           <div class="highlight-cards">
-            @for (card of highlights; track card.titleKey) {
-              <div class="highlight-card">
-                <span class="highlight-card__icon">{{ card.icon }}</span>
-                <div>
-                  <h4 class="highlight-card__title">{{ card.titleKey | translate }}</h4>
-                  <p class="highlight-card__desc">{{ card.descKey | translate }}</p>
-                </div>
+            @for (card of product.highlights; track card.titleKey) {
+            <div class="highlight-card">
+              <span class="highlight-card__icon">{{ card.icon }}</span>
+              <div>
+                <h4 class="highlight-card__title">{{ card.titleKey | translate }}</h4>
+                <p class="highlight-card__desc">{{ card.descKey | translate }}</p>
               </div>
+            </div>
             }
           </div>
         </div>
 
         <div class="spotlight__visual" data-aos="fade-left" data-aos-delay="200">
           <div class="mockup-card">
-            <img
-              src="assets/images/product/platform.webp"
-              alt="YounitedTherapy platform overview"
-              loading="lazy"
-            />
+            <img [src]="product.img" [alt]="product.img" loading="lazy" />
           </div>
         </div>
       </div>
+      }
 
       <div class="pipeline-teaser" data-aos="fade-up" data-aos-delay="300">
         <span class="pipeline-teaser__icon">🔮</span>

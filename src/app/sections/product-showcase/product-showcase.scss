@@ -11,6 +11,12 @@
   background: variables.$color-bg-light;
 }
 
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$space-9;
+}
+
 .label {
   display: inline-block;
   font-family: typography.$font-body;
@@ -201,12 +207,16 @@
   overflow: hidden;
   background: variables.$color-bg-white;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.03);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(variables.$color-primary, 0.08);
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.12),
+      0 0 0 1px rgba(variables.$color-primary, 0.08);
   }
 
   img {
@@ -225,7 +235,6 @@
   align-items: center;
   justify-content: center;
   gap: variables.$space-2;
-  margin-top: variables.$space-9;
   padding: variables.$space-4 0;
   border-top: 1px solid variables.$color-border;
 

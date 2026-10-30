@@ -147,10 +147,10 @@ export class TranslationService {
 
   /**
    * Translate a key. Supports dot-notation for nested keys.
-   * Falls back to the key itself if not found.
+   * Falls back to the provided text, or the key itself, if not found.
    */
-  translate(key: string): string {
+  translate(key: string, fallback = key): string {
     const dict = this.translations();
-    return dict[key] ?? key;
+    return dict[key] ?? fallback;
   }
 }
