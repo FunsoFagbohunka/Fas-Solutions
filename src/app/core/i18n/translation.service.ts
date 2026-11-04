@@ -63,9 +63,8 @@ export class TranslationService {
   );
   readonly languages = SUPPORTED_LANGUAGES;
 
-  constructor() {
-    const lang = this.detectLanguage();
-    this.setLanguage(lang);
+  initialize(): Promise<void> {
+    return this.setLanguage(this.detectLanguage());
   }
 
   /**
@@ -78,7 +77,10 @@ export class TranslationService {
     if (!isPlatformBrowser(this.platformId)) return 'en';
 
     // Check localStorage for saved preference
-    const saved = localStorage.getItem(STORAGE_KEY);
+    let saved: string | null = null;
+    try {
+      saved = localStorage.getItem(STORAGE_KEY);
+    } catch {}
     if (saved && SUPPORTED_LANGUAGES.some((l) => l.code === saved)) {
       return saved;
     }
@@ -113,7 +115,9 @@ export class TranslationService {
       this._currentLang.set(langCode);
 
       if (isPlatformBrowser(this.platformId)) {
-        localStorage.setItem(STORAGE_KEY, langCode);
+        try {
+          localStorage.setItem(STORAGE_KEY, langCode);
+        } catch {}
         document.documentElement.lang = langCode;
         // Set direction for RTL languages
         document.documentElement.dir = langCode === 'ar' ? 'rtl' : 'ltr';

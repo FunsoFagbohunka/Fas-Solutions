@@ -6,11 +6,33 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
+import { SEO_PAGES, pageUrl } from './app/core/seo-pages';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+
+app.get('/robots.txt', (_req, res) => {
+  res.type('text/plain').send('User-agent: *\nAllow: /\nSitemap: ' + pageUrl('sitemap.xml') + '\n');
+});
+
+app.get('/sitemap.xml', (_req, res) => {
+  const entries = Object.entries(SEO_PAGES)
+    .filter(([, page]) => !('indexable' in page) || page.indexable)
+    .map(([path]) => '  <url><loc>' + pageUrl(path) + '</loc></url>');
+  res.type('application/xml').send([
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...entries,
+    '</urlset>',
+  ].join('\n'));
+});
+
+app.use((_req, res, next) => {
+  res.setHeader('Cache-Control', 'no-cache');
+  next();
+});
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -29,9 +51,16 @@ const angularApp = new AngularNodeAppEngine();
  */
 app.use(
   express.static(browserDistFolder, {
-    maxAge: '1y',
     index: false,
     redirect: false,
+    setHeaders(res, filePath) {
+      const fingerprinted = /-[A-Z0-9_-]{8}\.(?:js|css)$/i.test(filePath);
+      const translation = /[\\/]assets[\\/]i18n[\\/][a-z]+\.json$/i.test(filePath);
+      res.setHeader(
+        'Cache-Control',
+        translation ? 'no-store' : fingerprinted ? 'public, max-age=31536000, immutable' : 'no-cache',
+      );
+    },
   }),
 );
 

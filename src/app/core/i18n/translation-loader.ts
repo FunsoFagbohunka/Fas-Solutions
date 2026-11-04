@@ -11,7 +11,7 @@ export const TRANSLATION_LOADER = new InjectionToken<TranslationLoader>('TRANSLA
 export function createBrowserTranslationLoader(): TranslationLoader {
   return {
     async load(langCode: string): Promise<TranslationDict> {
-      const response = await fetch(`/assets/i18n/${langCode}.json`);
+      const response = await fetch(`/assets/i18n/${langCode}.json`, { cache: 'no-store' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
     },

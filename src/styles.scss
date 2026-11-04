@@ -7,3 +7,17 @@
 @use 'styles/utilities';
 
 @use 'aos/dist/aos.css';
+
+[data-aos]:not(.aos-init) {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
