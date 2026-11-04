@@ -1,0 +1,10 @@
+services:
+  fas-solutions:
+    image: fas-solutions:0.0.1
+    container_name: fas-solutions
+    ports:
+      - '4000:4000'
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+    restart: unless-stopped
